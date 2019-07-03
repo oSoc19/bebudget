@@ -9,7 +9,7 @@ class Categorie_model extends CI_Model
 
     function getAllByNaam()
     {
-        $this->db->order_by('SPF_FOD_NL', 'asc');
+        $this->db->order_by('Column_2018_CE_VK', 'desc');
         $query = $this->db->get('Categories');
         return $query->result();
     }
