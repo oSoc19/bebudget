@@ -1,50 +1,57 @@
 <?php
 
-$percentages[] = 0;
-foreach ($categories as $category) {
-    echo "['" . $category->SPF_FOD_NL . "', " . $category->Column_2018_CE_VK . "],";
-    /*echo $category->SPF_FOD_NL;
-    echo "                       ";
-    echo $category->Percentage;*/
-    echo "</br>";
 
-    $percentages[] = $category->Percentage . ", ";}
+foreach ($expenses as $expens) {
+    /*if( strpos($expens->NFGOVCOFOG_FUNCTION,"F") ) {*/
+    if (strlen($expens->NFGOVCOFOG_FUNCTION) === 3) {
+       /* echo $expens->NFGOVCOFOG_FUNCTION;
+
+        echo "                       ";
+        echo "</br>";
+        echo "</br>";*/
+
+       /* echo "['" . substr($expens->Overheidsfunctie,3) . "', " . $expens->Value . "],";
+        echo "</br>";*/
+    }
+    /*}*/
+
+
+}
 ?>
-<div id="donutchart" style="width: 1400px; height: 1000px;"></div>
+<div id="donutchart" style="width: 1200px; height: 700px;"></div>
+
+<!--<p>What does this mean?</p>
+<p>if government has €100(0) ->  </p>-->
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    google.charts.load("current", {packages:["corechart"]});
+    google.charts.load("current", {packages: ["corechart"]});
     google.charts.setOnLoadCallback(drawChart);
+
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Budget', 'Category'],
-            ['RIJKSSCHULD', 46699126],
-            ['FOD SOCIALE ZEKERHEID', 18710216],
-            ['DOTATIES', 13173253],
-            ['LANDSVERDEDIGING', 12194205],
-            ['FOD MOBILITEIT EN VERVOER', 3286693],
-            ['EUROPESE UNIE', 3172020],
-            ['FED. POLITIE & GEINT. WERKING', 2008551],
-            ['FINANCIEN', 2000892],
-            ['JUSTITIE', 1804283],
-            ['BINNENLANDSE ZAKEN', 1482358],
-            ['BUIT. ZAKEN & ONTW.-SAMENWERK.', 1404587],
-            ['MAATSCHAPPELIJKE INTEGRATIE', 1324924],
-            ['INTERDEPARTEMENTALE PROVISIES', 925939],
-            ['REGIE DER GEBOUWEN + OP. AMBT', 728928],
-            ['ECONOMIE', 592365],
-            ['WETENSCHAPSBELEID', 489711],
-            ['KANSELARIJ', 399295],
-            ['VOLKSGEZONDHEID', 341429],
-            ['WERKGELEGENHEID, ARBEID & S.O.', 219287],
-            ['FOD BOSA', 153004],
-            ['Onafhankelijke organen.', 8361]
+            ['Sociale bescherming', 85846.5],
+            ['Gezondheid', 33684.3],
+            ['Algemeen bestuur', 31816.9],
+            ['Economische zaken', 27818.1],
+            ['Onderwijs', 27782.7],
+            ['Openbare orde en veiligheid', 7536.5],
+            ['Recreatie, cultuur en religie', 5532.3],
+            ['Milieubescherming', 4014.3],
+            ['Defensie', 3529.4],
+            ['Huisvesting en gemeenschapsvoorzieningen', 1424.8]
         ]);
 
         var options = {
             title: 'Budget data per category',
             pieHole: 0.65,
-            colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
+            colors: ['#4ABEDF','#FFF728','#6A6A68',  '#FF5360',  '#BBAB8B','#C59EF6','#EF8275','#E7EB90','#9DC0BC','#C89F9C'],
+            /*colors: ['#4ABEDF', '#FFDD0E', '#FF3946', '#50504E','#4ABEDF', '#FFDD0E', '#FF3946','#4ABEDF', '#FFDD0E', '#FF3946',],*/
+            enableInteractivity: true,
+            /*pieSliceText: 'percentage'*/
+            /*reverseCategories:true,*/
+            tooltip: {textStyle: {color: 'black'}, showColorCode: true}
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
