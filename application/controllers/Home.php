@@ -20,7 +20,7 @@ class Home extends CI_Controller
         $this->template->load('main_master', $partials, $data);
     }
 
-    public function index()
+    public function index3()
     {
         $data['titel'] = 'About';
 
@@ -30,6 +30,14 @@ class Home extends CI_Controller
         $partials = array('hoofding' => 'main_header',
             'nav' => 'main_nav',
             'inhoud' => 'test');
+        $this->template->load('main_master', $partials, $data);
+    }
+
+    public function index() {
+        $data['titel'] = '';
+        $partials = array('hoofding' => 'main_header',
+            'nav' => 'main_nav',
+            'inhoud' => 'landingpage');
         $this->template->load('main_master', $partials, $data);
     }
 }

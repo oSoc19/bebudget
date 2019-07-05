@@ -9,6 +9,7 @@
     <title>oSoc19 - Budget Data</title>
 
     <?php echo pasStylesheetAan("bootstrap.css"); ?>
+    <?php echo pasStylesheetAan("style.css"); ?>
 
     <?php echo pasStylesheetAan("buttons.css"); ?>
 
