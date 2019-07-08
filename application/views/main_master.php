@@ -60,7 +60,7 @@
 
     <div class="row">
         <div class="col-12 mb-2">
-            <h2><?php echo $titel; ?></h2>
+            <h2><?php echo $title; ?></h2>
         </div>
     </div>
 

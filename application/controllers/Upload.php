@@ -1,0 +1,101 @@
+<?php
+    defined('BASEPATH') OR exit('No direct script access allowed');
+
+
+    class Upload extends CI_Controller {
+
+
+        public function __construct() {
+            parent::__construct();
+
+            $this->load->helper('form');
+        }
+
+        public function index() {
+            $data['title'] = 'Upload CSV file';
+
+            $partials = array('hoofding' => 'main_header',
+                'inhoud' => 'upload_form');
+            $this->template->load('main_master', $partials, $data);
+        }
+
+        public function do_upload() {
+            $data['title'] = 'Upload CSV file';
+            $year = $this->input->post('year');
+
+            $config['upload_path'] = './uploads/';
+            $config['allowed_types'] = 'csv';
+            $config['overwrite'] = TRUE;
+            $config['file_name'] = $year;
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('userfile')) {
+                $data['error'] = $this->upload->display_errors();
+            } else {
+                $data['success'] = 'Upload successful';
+                $this->filtercsv($year);
+            }
+
+            $partials = array('hoofding' => 'main_header',
+                'inhoud' => 'upload_form');
+            $this->template->load('main_master', $partials, $data);
+        }
+
+        private function filtercsv($year) {
+            $row = 1;
+            $data = array();
+            $previous_id = NULL;
+            $category = new stdClass();
+
+            if (($handle = fopen('./uploads/' . $year . '.csv', 'rb')) !== FALSE) {
+                while (($line = fgetcsv($handle, 10000, ',')) !== FALSE) {
+                    if ($line[2] === 'TOT' && $line[4] === 'S1300') {
+
+                        if ($line[0] === 'TOT') {
+                            $category->id = $line[0];
+                            $category->name = $line[1];
+                            $category->government = $line[5];
+                            $category->year = $line[8];
+                            $category->value = $line[10];
+
+                            $data[$line[0]] = $category;
+                            $category = new stdClass();
+                        }
+
+                        if ($line[0] !== 'TOT' && strlen($line[0]) === 3) {
+                            $category->id = $line[0];
+                            $category->name = $line[1];
+                            $category->government = $line[5];
+                            $category->year = $line[8];
+                            $category->value = $line[10];
+                            $category->subcategories = array();
+                        }
+
+                        if (strpos($line[0], $previous_id) !== false) {
+                            $subcategory = new stdClass();
+                            $subcategory->id = $line[0];
+                            $subcategory->name = $line[1];
+                            $subcategory->value = $line[10];
+
+                            if (empty((array)$category) && empty($data) === false) {
+                                $data[$previous_id]->subcategories[] = $subcategory;
+                            } else {
+                                $category->subcategories[] = $subcategory;
+                                $data[$category->id] = $category;
+                            }
+
+                            $category = new stdClass();
+                        }
+
+                        if (strlen($line[0]) === 3) {
+                            $previous_id = $line[0];
+                        }
+                    }
+                }
+                fclose($handle);
+            }
+
+            file_put_contents('./uploads/' . $year . '.json', json_encode($data));
+        }
+    }
