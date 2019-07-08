@@ -27,7 +27,8 @@
 <body>
 
 
-	<?php echo $inhoud; ?>
+	<?php echo $landingspage; ?>
+	<?php echo $quiz; ?>
 
 	<div id="upload-form" class="modal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
