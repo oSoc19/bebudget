@@ -1,9 +1,6 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
 
-    /**
-     * @property Categorie_model $categorie_model
-     */
     class Home extends CI_Controller {
 
         public function __construct() {
@@ -13,11 +10,32 @@
         }
 
         public function index() {
-            $data['titel'] = 'Index';
-
-            $this->load->model('categorie_model');
-            $data['categories'] = $this->categorie_model->getAllByNaam();
+            $data['titel'] = '';
             $partials = array('hoofding' => 'main_header',
+                'nav' => 'main_nav',
+                'inhoud' => 'landingpage');
+            $this->template->load('main_master', $partials, $data);
+        }
+
+        public function index2() {
+            $data['titel'] = 'About';
+
+            $this->load->model('category_model');
+            $data['categories'] = $this->category_model->getAllByNaam();
+            $partials = array('hoofding' => 'main_header',
+                'nav' => 'main_nav',
+                'inhoud' => 'piechart_NL');
+            $this->template->load('main_master', $partials, $data);
+        }
+
+        public function index3() {
+            $data['titel'] = 'About';
+
+            $this->load->model('expense_model');
+            $data['expenses'] = $this->expense_model->getCategories();
+
+            $partials = array('hoofding' => 'main_header',
+                'nav' => 'main_nav',
                 'inhoud' => 'test');
             $this->template->load('main_master', $partials, $data);
         }

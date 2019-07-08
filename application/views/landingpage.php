@@ -1,28 +1,18 @@
-<?php
-
-
-foreach ($expenses as $expens) {
-    /*if( strpos($expens->NFGOVCOFOG_FUNCTION,"F") ) {*/
-    if (strlen($expens->NFGOVCOFOG_FUNCTION) === 3) {
-       /* echo $expens->NFGOVCOFOG_FUNCTION;
-
-        echo "                       ";
-        echo "</br>";
-        echo "</br>";*/
-
-       /* echo "['" . substr($expens->Overheidsfunctie,3) . "', " . $expens->Value . "],";
-        echo "</br>";*/
-    }
-    /*}*/
-
-
-}
-?>
-<div id="donutchart" style="width: 1200px; height: 700px;"></div>
-
-<!--<p>What does this mean?</p>
-<p>if government has €100(0) ->  </p>-->
-
+<!-- Page Content -->
+<div class="container">
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+            <h1 class="font-weight-light">Do you know where your taxes are going?</h1>
+            <div id="buttons">
+            <p class="btn btn-light">Yes, test me</p>
+            <p class="btn btn-light">No, learn more</p>
+            </div>
+           <!-- <div style="height: 700px"></div>
+            <p class="lead mb-0">You've reached the end!</p>-->
+            <div id="donutchart" style="width: 1000px; height: 900px;"></div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     google.charts.load("current", {packages: ["corechart"]});

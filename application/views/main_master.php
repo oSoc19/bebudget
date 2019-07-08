@@ -9,6 +9,7 @@
     <title>oSoc19 - Budget Data</title>
 
     <?php echo pasStylesheetAan("bootstrap.css"); ?>
+    <?php echo pasStylesheetAan("style.css"); ?>
 
     <?php echo pasStylesheetAan("buttons.css"); ?>
 
@@ -26,40 +27,14 @@
 </head>
 
 <body>
-<nav class="navbar navbar-dark bg-dark navbar-expand-md">
-    <a class="navbar-brand" href="<?php echo site_url() ?>">Welkom!</a>
-    <button type="button" class="navbar-toggler" data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li>
-                <a class="nav-link" href="<?php echo site_url() . '#bootstrap'; ?>">Bootstrap</a>
-            </li>
-            <li>
-                <a class="nav-link" href="<?php echo site_url() . '#jquery'; ?>">jQuery</a>
-            </li>
-            <li>
-                <a class="nav-link" href="<?php echo site_url() . '#ajax'; ?>">Ajax</a>
-            </li>
-            <li>
-                <a class="nav-link" href="<?php echo site_url() . '#json'; ?>">JSON</a>
-            </li>
-            <li>
-                <a href="<?php echo site_url(); ?>/upload" data-toggle="modal" data-target="#upload-form">Upload</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
+<?php echo $nav; ?>
 <div class="container my-4">
-    <header class="jumbotron">
-        <?php echo $hoofding; ?>
+    <!--<header class="jumbotron">
+        <?php /*echo $hoofding; */?>
     </header>
 
-    <hr>
+    <hr>-->
 
     <div class="row">
         <div class="col-12 mb-2">
@@ -76,7 +51,7 @@
     <footer>
         <div class="row">
             <div class="col-12">
-                <p>Copyright</p>
+                <p>Team BE budget - Budget Data</p>
             </div>
         </div>
     </footer>
