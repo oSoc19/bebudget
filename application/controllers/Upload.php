@@ -9,14 +9,20 @@
             parent::__construct();
 
             $this->load->helper('form');
+            $this->load->helper('url');
         }
 
         public function index() {
-            $data['title'] = 'Upload CSV file';
+            if ($this->config->config['upload_access']) {
 
-            $partials = array('hoofding' => 'main_header',
-                'inhoud' => 'upload_form');
-            $this->template->load('main_master', $partials, $data);
+                $data['title'] = 'Upload CSV file';
+
+                $partials = array('hoofding' => 'main_header',
+                    'inhoud' => 'upload_form');
+                $this->template->load('main_master', $partials, $data);
+            } else {
+                redirect('/home');
+            }
         }
 
         public function do_upload() {
@@ -97,5 +103,16 @@
             }
 
             file_put_contents('./uploads/' . $year . '.json', json_encode($data));
+        }
+
+        public function checkPassword() {
+            $password = $this->input->post('password-input');
+
+            if ($password !== $this->config->config['password']) {
+                redirect('/home');
+            }
+
+            $this->config->set_item('upload_access',TRUE);
+            $this->index();
         }
     }

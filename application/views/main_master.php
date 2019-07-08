@@ -47,6 +47,9 @@
             <li>
                 <a class="nav-link" href="<?php echo site_url() . '#json'; ?>">JSON</a>
             </li>
+            <li>
+                <a href="<?php echo site_url(); ?>/upload" data-toggle="modal" data-target="#upload-form">Upload</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -77,6 +80,29 @@
             </div>
         </div>
     </footer>
+</div>
+
+<div id="upload-form" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Please enter a password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?php $attributes = array('name' => 'upload-form'); ?>
+            <?php echo form_open('upload/checkPassword', $attributes) ?>
+            <div class="modal-body">
+                <input type="password" name="password-input"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Go to upload</button>
+            </div>
+            <?php echo form_close(); ?>
+        </div>
+    </div>
 </div>
 </body>
 
