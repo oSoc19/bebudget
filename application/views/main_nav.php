@@ -1,24 +1,8 @@
-<!--<nav class="navbar navbar-dark bg-dark navbar-expand-md">
-    <button type="button" class="navbar-toggler" data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-                        <li>
-                <a class="nav-link">NL</a>
-            </li>
-            <li>
-                <a class="nav-link">FR</a>
-            </li>
-        </ul>
-    </div>
-</nav>-->
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">BE budget</a>
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/images/bosa.png" alt="logo">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,4 +22,5 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav>-->
+

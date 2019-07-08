@@ -1,10 +1,54 @@
-body {
-    background: url('https://source.unsplash.com/twukN12EN7c/1920x1080') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
     background-size: cover;
-    -o-background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-#buttons{
-    margin-left: auto;
+#buttons {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+#buttons p, #buttons a{
+    font-size: 1.25rem;
+    margin: 0 20px;
+}
+
+#buttons .btnright {
+    margin-left: -40%;
+}
+
+#buttons .btnleft {
+    margin-right: -40%;
+}
+
+#nav, #lang{
+    background-color: transparent;
+    text-align: center;
+    font-size: large;
+    text-transform: uppercase;
+
+    display: flex;
+    align-content: center;
+    width: 50%;
+}
+#nav {
+    padding-top: 2%;
+}
+#nav p{
+    flex:calc(10% - 10px);
+}
+
+#lang{
+    position: absolute;
+    padding-top:2%;
+
+    right: 10%;
+    justify-content: flex-end;
+}
+#lang p {
+    margin: 0 10px;
 }

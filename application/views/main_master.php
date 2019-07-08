@@ -11,8 +11,7 @@
     <?php echo pasStylesheetAan("bootstrap.css"); ?>
     <?php echo pasStylesheetAan("style.css"); ?>
 
-    <?php echo pasStylesheetAan("buttons.css"); ?>
-
+    <?php echo haalJavascriptOp("scroll.js"); ?>
     <?php echo haalJavascriptOp("jquery-3.3.1.js"); ?>
     <?php echo haalJavascriptOp("bootstrap.bundle.js"); ?>
 
@@ -27,34 +26,9 @@
 </head>
 
 <body>
-<?php echo $nav; ?>
-<div class="container my-4">
-    <!--<header class="jumbotron">
-        <?php /*echo $hoofding; */?>
-    </header>
 
-    <hr>-->
+<?php echo $inhoud; ?>
 
-    <div class="row">
-        <div class="col-12 mb-2">
-            <h2><?php echo $titel; ?></h2>
-        </div>
-    </div>
-
-    <div class="row">
-        <?php echo $inhoud; ?>
-    </div>
-
-    <hr>
-
-    <footer>
-        <div class="row">
-            <div class="col-12">
-                <p>Team BE budget - Budget Data</p>
-            </div>
-        </div>
-    </footer>
-</div>
 </body>
 
 </html>
