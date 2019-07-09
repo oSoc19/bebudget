@@ -471,16 +471,16 @@ foreach ($expenses as $expens) {
 
     dataChart = [];
     dataChart.push(['Budget', 'Category']);
-    dataChart.push([data.F01.name,data.F01.value]);
-    dataChart.push([data.F02.name,data.F02.value]);
-    dataChart.push([data.F03.name,data.F03.value]);
-    dataChart.push([data.F04.name,data.F04.value]);
-    dataChart.push([data.F05.name,data.F05.value]);
-    dataChart.push([data.F06.name,data.F06.value]);
-    dataChart.push([data.F07.name,data.F07.value]);
-    dataChart.push([data.F08.name,data.F08.value]);
-    dataChart.push([data.F09.name,data.F09.value]);
-    dataChart.push([data.F10.name,data.F10.value]);
+    dataChart.push([data.F01.name,parseInt(data.F01.value)]);
+    dataChart.push([data.F02.name,parseInt(data.F02.value)]);
+    dataChart.push([data.F03.name,parseInt(data.F03.value)]);
+    dataChart.push([data.F04.name,parseInt(data.F04.value)]);
+    dataChart.push([data.F05.name,parseInt(data.F05.value)]);
+    dataChart.push([data.F06.name,parseInt(data.F06.value)]);
+    dataChart.push([data.F07.name,parseInt(data.F07.value)]);
+    dataChart.push([data.F08.name,parseInt(data.F08.value)]);
+    dataChart.push([data.F09.name,parseInt(data.F09.value)]);
+    dataChart.push([data.F10.name,parseInt(data.F10.value)]);
 
     console.log(dataChart);
     google.charts.load("current", {packages: ["corechart"]});
