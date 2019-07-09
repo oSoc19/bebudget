@@ -1,30 +1,9 @@
-<?php
-
-
-foreach ($expenses as $expens) {
-    /*if( strpos($expens->NFGOVCOFOG_FUNCTION,"F") ) {*/
-    if (strlen($expens->NFGOVCOFOG_FUNCTION) === 3) {
-       /* echo $expens->NFGOVCOFOG_FUNCTION;
-
-        echo "                       ";
-        echo "</br>";
-        echo "</br>";*/
-
-       /* echo "['" . substr($expens->Overheidsfunctie,3) . "', " . $expens->Value . "],";
-        echo "</br>";*/
-    }
-    /*}*/
-}
-?>
-<button id="getData">Haal data op</button>
 <div id="donutchart" style="width: 1200px; height: 700px;"></div>
 
-<!--<p>What does this mean?</p>
-<p>if government has €100(0) ->  </p>-->
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    data = {
+    info = {
         TOT: {
             id: "TOT",
             name: "Total",
@@ -469,33 +448,51 @@ foreach ($expenses as $expens) {
         }
     };
 
-    dataChart = [];
-    dataChart.push(['Budget', 'Category']);
-    dataChart.push([data.F01.name,parseInt(data.F01.value)]);
-    dataChart.push([data.F02.name,parseInt(data.F02.value)]);
-    dataChart.push([data.F03.name,parseInt(data.F03.value)]);
-    dataChart.push([data.F04.name,parseInt(data.F04.value)]);
-    dataChart.push([data.F05.name,parseInt(data.F05.value)]);
-    dataChart.push([data.F06.name,parseInt(data.F06.value)]);
-    dataChart.push([data.F07.name,parseInt(data.F07.value)]);
-    dataChart.push([data.F08.name,parseInt(data.F08.value)]);
-    dataChart.push([data.F09.name,parseInt(data.F09.value)]);
-    dataChart.push([data.F10.name,parseInt(data.F10.value)]);
-
-    console.log(dataChart);
     google.charts.load("current", {packages: ["corechart"]});
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            dataChart
-        ]);
+        var data = new google.visualization.DataTable();
+        data.addColumn('string','Category');
+        data.addColumn('number','Value');
+        data.addRows(10);
+        data.setCell(0,0,info.F01.name);
+        data.setCell(0,1,info.F01.value);
+
+        data.setCell(1,0,info.F02.name);
+        data.setCell(1,1,info.F02.value);
+
+        data.setCell(2,0,info.F03.name);
+        data.setCell(2,1,info.F03.value);
+
+        data.setCell(3,0,info.F04.name);
+        data.setCell(3,1,info.F04.value);
+
+        data.setCell(4,0,info.F05.name);
+        data.setCell(4,1,info.F05.value);
+
+        data.setCell(5,0,info.F06.name);
+        data.setCell(5,1,info.F06.value);
+
+        data.setCell(6,0,info.F07.name);
+        data.setCell(6,1,info.F07.value);
+
+        data.setCell(7,0,info.F08.name);
+        data.setCell(7,1,info.F08.value);
+
+        data.setCell(8,0,info.F09.name);
+        data.setCell(8,1,info.F09.value);
+
+        data.setCell(9,0,info.F10.name);
+        data.setCell(9,1,info.F10.value);
+        for (var i =0; i < info.F01.subcategories.length; i++) {
+            console.log(info.F01.subcategories[i]);
+        }
 
         var options = {
             title: 'Budget data per category',
             pieHole: 0.65,
             colors: ['#4ABEDF','#FFF728','#6A6A68',  '#FF5360',  '#BBAB8B','#C59EF6','#EF8275','#E7EB90','#9DC0BC','#C89F9C'],
-            /*colors: ['#4ABEDF', '#FFDD0E', '#FF3946', '#50504E','#4ABEDF', '#FFDD0E', '#FF3946','#4ABEDF', '#FFDD0E', '#FF3946',],*/
             enableInteractivity: true,
             /*pieSliceText: 'percentage'*/
             /*reverseCategories:true,*/
@@ -956,6 +953,10 @@ foreach ($expenses as $expens) {
                 ]
             }
         }
+       for (var i =0; i < data.length; i++) {
+           console.log(i);
+       }
+
     });
     var getData = function () {
         var settings = {
