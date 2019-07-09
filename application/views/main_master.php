@@ -8,8 +8,9 @@
 
 	<title>oSoc19 - Budget Data</title>
 
-	<?php echo pasStylesheetAan("bootstrap.css"); ?>
-	<?php echo pasStylesheetAan("style.css"); ?>
+	<?php echo haalCssOp("bootstrap.css"); ?>
+	<?php echo haalCssOp("style.css"); ?>
+	<?php echo haalCssOp("quiz.css"); ?>
 
 	<?php echo haalJavascriptOp("scroll.js"); ?>
 	<?php echo haalJavascriptOp("jquery-3.3.1.js"); ?>
