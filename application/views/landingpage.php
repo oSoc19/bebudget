@@ -10,7 +10,8 @@
             <?php echo anchor("","Home"); ?>
             <?php echo anchor("","Info"); ?>
             <?php echo anchor("","Quiz"); ?>
-            <?php echo anchor("","Contact"); ?>
+            <?php /*echo anchor("","Contact"); */?>
+            <a href="#" data-toggle="modal" data-target="#upload-form"></a>
         </div>
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center">
