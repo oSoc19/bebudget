@@ -1,109 +1,117 @@
 .masthead {
-    height: 100vh;
-    min-height: 500px;
-    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    /*background: rgb(255,240,221);
+	height: 100vh;
+	min-height: 500px;
+	background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	/*background: rgb(255,240,221);
     background: linear-gradient(140deg, rgba(255,240,221,1) 25%, rgba(23,139,172,1) 100%);*/
 }
 
 #buttons {
-    margin-top: 3%;
-    display: flex;
-    justify-content: center;
+	margin-top: 3%;
+	display: flex;
+	justify-content: center;
 }
 
-#buttons p, #buttons a {
-    font-size: 1.25rem;
-    margin: 0 20px;
+#buttons p,
+#buttons a {
+	font-size: 1.25rem;
+	margin: 0 20px;
 }
 
 #buttons .btnright {
-    margin-left: -40%;
+	margin-left: -40%;
 }
 
 #buttons .btnleft {
-    margin-right: -40%;
+	margin-right: -40%;
 }
 
-#nav, #lang {
-    background-color: transparent;
-    text-align: center;
-    font-size: large;
-    text-transform: uppercase;
-    display: flex;
-    align-content: center;
+#nav,
+#lang {
+	background-color: transparent;
+	text-align: center;
+	font-size: large;
+	text-transform: uppercase;
+	display: flex;
+	align-content: center;
 }
 
 #nav {
-    position: relative;
-    top: 2%;
+	position: relative;
+	top: 2%;
 }
 
 #nav a {
-    flex: calc(10% - 10px);
+	flex: calc(10% - 10px);
 }
 
 #lang {
-    position: absolute;
-    top: 2%;
-    right: 10%;
-    justify-content: flex-end;
-    flex: 1 1 auto;
-    width: 20%;
+	position: absolute;
+	top: 2%;
+	right: 10%;
+	justify-content: flex-end;
+	flex: 1 1 auto;
+	width: 20%;
 }
 
 #lang a {
-    margin: 0 10px;
+	margin: 0 10px;
 }
 
 @media screen and (min-width: 992px) {
-    #nav {
-        width: 50%;
-    }
+	#nav {
+		width: 50%;
+	}
 }
+
 @media screen and (max-width: 992px) {
-    #nav{
-        position: relative;
-        top: 10%;
-    }
-    #lang{
-        width: 30%;
-    }
+	#nav {
+		position: relative;
+		top: 10%;
+	}
+
+	#lang {
+		width: 30%;
+	}
 }
 
 
-a{
-    color: #000;
+a {
+	color: #000;
 }
 
- #nav a, #lang a, p , h1, .btn {
-     color: #0A0839;
- }
-#nav a, #lang a, .btn, p{
-    font-family: 'Nunito', sans-serif;
+#nav a,
+#lang a,
+p,
+h1,
+.btn {
+	color: #0A0839;
+}
 
+#nav a,
+#lang a,
+.btn,
+p {
+	font-family: 'Nunito', sans-serif;
+
+}
+
+h1,.h1{
+    font-family: 'Poppins', sans-serif;
+    /*text-transform: uppercase;*/
+
+    /*font-weight: bold;*/
 }
 
 /*font-family: 'Nunito', sans-serif;
 font-family: 'Noto Sans HK', sans-serif;
-font-family: 'Pavanam', sans-serif;
-font-family: 'IBM Plex Sans Condensed', sans-serif;
-font-family: 'Imprima', sans-serif;
-font-family: 'Padauk', sans-serif;
 font-family: 'Mallanna', sans-serif;
 font-family: 'Mandali', sans-serif;
 font-family: 'Poppins', sans-serif;
 font-family: 'Raleway', sans-serif;
-font-family: 'PT Sans', sans-serif;
-font-family: 'Ubuntu', sans-serif;
-font-family: 'Fjalla One', sans-serif;
-font-family: 'Varela Round', sans-serif;
 font-family: 'Overpass', sans-serif;
 font-family: 'Signika', sans-serif;
-font-family: 'Viga', sans-serif;
-font-family: 'Julius Sans One', sans-serif;
-font-family: 'Spinnaker', sans-serif;*/
-
+*/
