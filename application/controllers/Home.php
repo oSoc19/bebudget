@@ -10,11 +10,16 @@
         }
 
         public function index() {
+            $this->load->model('quiz_model');
+            $questions = $this->quiz_model->generateQuestions();
+
             $data['titel'] = '';
+            $data['questions'] = $questions;
+
             $partials = array(
                 'nav' => 'main_nav',
                 'landingspage' => 'landingpage',
-                'quiz' => 'quiz');
+                'quiz' => 'quiz_view');
             $this->template->load('main_master', $partials, $data);
         }
 
