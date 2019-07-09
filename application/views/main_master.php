@@ -17,6 +17,8 @@
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|IBM+Plex+Sans+Condensed|Imprima|Julius+Sans+One|Mallanna|Mandali|Noto+Sans+HK|Nunito|Overpass|PT+Sans|Padauk|Pavanam|Poppins|Raleway|Signika|Spinnaker|Ubuntu|Varela+Round|Viga&display=swap" rel="stylesheet">
+
 	<script>
 		var site_url = '<?php echo site_url(); ?>';
 		var base_url = '<?php echo base_url(); ?>';

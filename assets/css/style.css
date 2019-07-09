@@ -5,6 +5,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    /*background: rgb(255,240,221);
+    background: linear-gradient(140deg, rgba(255,240,221,1) 25%, rgba(23,139,172,1) 100%);*/
 }
 
 #buttons {
@@ -72,6 +74,36 @@
     }
 }
 
+
 a{
     color: #000;
 }
+
+ #nav a, #lang a, p , h1, .btn {
+     color: #0A0839;
+ }
+#nav a, #lang a, .btn, p{
+    font-family: 'Nunito', sans-serif;
+
+}
+
+/*font-family: 'Nunito', sans-serif;
+font-family: 'Noto Sans HK', sans-serif;
+font-family: 'Pavanam', sans-serif;
+font-family: 'IBM Plex Sans Condensed', sans-serif;
+font-family: 'Imprima', sans-serif;
+font-family: 'Padauk', sans-serif;
+font-family: 'Mallanna', sans-serif;
+font-family: 'Mandali', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'PT Sans', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Varela Round', sans-serif;
+font-family: 'Overpass', sans-serif;
+font-family: 'Signika', sans-serif;
+font-family: 'Viga', sans-serif;
+font-family: 'Julius Sans One', sans-serif;
+font-family: 'Spinnaker', sans-serif;*/
+
