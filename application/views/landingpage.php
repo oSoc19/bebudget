@@ -1,16 +1,17 @@
 <!-- Full Page Image Header with Vertically Centered Content -->
 <header class="masthead">
     <div class="container h-100">
-        <div class="container" id="lang">
-            <p>NL</p>
-            <p>EN</p>
-            <p>FR</p>
+       <div class="container" id="lang">
+            <a href="#">NL</a>
+            <a href="#">EN</a>
+            <a href="#">FR</a>
         </div>
         <div class="container" id="nav">
-            <p>Home</p>
-            <p>Info</p>
-            <p>Quiz</p>
-            <p>Contact</p>
+            <?php echo anchor("","Home"); ?>
+            <?php echo anchor("","Info"); ?>
+            <?php echo anchor("","Quiz"); ?>
+            <?php /*echo anchor("","Contact"); */?>
+            <a href="#" data-toggle="modal" data-target="#upload-form"></a>
         </div>
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center">
@@ -34,8 +35,8 @@
             blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat
             reprehenderit expedita.</p>
 
-        <div id="donutchart" style="width: 1200px; height: 700px;"></div>
-
+        <!--<div id="donutchart" style="width: 1200px; height: 700px;"></div>-->
+<!--
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
             google.charts.load("current", {packages: ["corechart"]});
@@ -70,7 +71,7 @@
                 var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
                 chart.draw(data, options);
             }
-        </script>
+        </script>-->
 
     </div>
 </section>

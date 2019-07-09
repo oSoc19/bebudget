@@ -53,20 +53,26 @@
             $data = array();
             $previous_id = NULL;
             $category = new stdClass();
+            $total = new stdClass();
+            $dataTotal = array();
+            $count=0;
 
             if (($handle = fopen('./uploads/' . $year . '.csv', 'rb')) !== FALSE) {
                 while (($line = fgetcsv($handle, 10000, ',')) !== FALSE) {
                     if ($line[2] === 'TOT' && $line[4] === 'S1300') {
 
                         if ($line[0] === 'TOT') {
-                            $category->id = $line[0];
-                            $category->name = $line[1];
-                            $category->government = $line[5];
-                            $category->year = $line[8];
-                            $category->value = $line[10];
+                            $total->id = $line[0];
+                            $total->name = $line[1];
+                            $total->government = $line[5];
+                            $total->year = $line[8];
+                            $total->value = $line[10];
+                            $total->categories = $dataTotal;
 
-                            $data[$line[0]] = $category;
+                            $data[$line[0]] = $total;
                             $category = new stdClass();
+                            $count=0;
+
                         }
 
                         if ($line[0] !== 'TOT' && strlen($line[0]) === 3) {
@@ -84,19 +90,32 @@
                             $subcategory->name = $line[1];
                             $subcategory->value = $line[10];
 
-                            if (empty((array)$category) && empty($data) === false) {
-                                $data[$previous_id]->subcategories[] = $subcategory;
+                            if (empty((array)$category) && empty($dataTotal) === false) {
+                                $dataTotal[$previous_id]->subcategories[] = $subcategory;
+
+
                             } else {
                                 $category->subcategories[] = $subcategory;
-                                $data[$category->id] = $category;
+
+                                $dataTotal[$category->id] = $category;
+                                if (empty((array)$category) && empty($data) === false && $count==1) {
+                                    $total->categories[] = $category;
+                                    $count++;
+                                } else {
+                                    $total->categories[] = $category;
+                                    $count++;
+                                }
                             }
 
                             $category = new stdClass();
+                            $count=0;
                         }
 
                         if (strlen($line[0]) === 3) {
                             $previous_id = $line[0];
                         }
+
+
                     }
                 }
                 fclose($handle);
