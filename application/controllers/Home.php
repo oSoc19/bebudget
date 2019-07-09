@@ -11,9 +11,10 @@
 
         public function index() {
             $data['titel'] = '';
-            $partials = array('hoofding' => 'main_header',
+            $partials = array(
                 'nav' => 'main_nav',
-                'inhoud' => 'landingpage');
+                'landingspage' => 'landingpage',
+                'quiz' => 'quiz');
             $this->template->load('main_master', $partials, $data);
         }
 
