@@ -1,5 +1,31 @@
 <div id="donutchart" style="width: 1200px; height: 700px;"></div>
 
+
+
+<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <section id="content">
+                    <div id="subcatChart" style="width: 90%; height:50%;"></div>
+                    <p></p>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     info = {
@@ -450,13 +476,26 @@
     };
 
     google.charts.load("current", {packages: ["corechart"]});
-    google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawChartCategories);
 
-    function drawChart() {
+    function drawChartCategories() {
+
+        dataCat = setDataForChartCategories();
+        options = setOptions();
+
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(dataCat, options);
+
+        showModalWithSubCategories(chart);
+
+    }
+
+    function setDataForChartCategories() {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Category');
         data.addColumn('number', 'Value');
-        data.addRows(10);
+        data.addRows(info.TOT.categories.length);
         var count = 0;
         for (var i = 0; i < info.TOT.categories.length; i++) {
 
@@ -465,7 +504,10 @@
             data.setCell(i, count, info.TOT.categories[i].value);
             count = 0;
         }
+        return data;
+    }
 
+    function setOptions() {
         var options = {
             title: 'Budget data per category',
             pieHole: 0.65,
@@ -476,21 +518,40 @@
             tooltip: {textStyle: {color: 'black'}, showColorCode: true}
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
+        return options;
+    }
+    function setOptionsForSubCategories() {
+        var options = {
+            title: 'Budget data per category',
+            /*pieHole: 0.65,*/
+            colors: ['#4ABEDF', '#FFF728', '#6A6A68', '#FF5360', '#BBAB8B', '#C59EF6', '#EF8275', '#E7EB90', '#9DC0BC', '#C89F9C'],
+            enableInteractivity: true,
+            /*pieSliceText: 'percentage'*/
+            /*reverseCategories:true,*/
+            tooltip: {textStyle: {color: 'black'}, showColorCode: true}
+        };
 
+        return options;
+    }
+
+    function showModalWithSubCategories(chart) {
         google.visualization.events.addListener(chart, 'click', clickHandler);
 
         function clickHandler(e) {
             var selectedItem = chart.getSelection()[0];
 
             if (selectedItem) {
-                var categoryname = data.getValue(selectedItem.row, 0);
-                alert('this was clicked: ' + categoryname);
+                var categoryname = dataCat.getValue(selectedItem.row, 0);
+                // alert('this was clicked: ' + categoryname);
                 for (var i = 0; i < info.TOT.categories.length; i++) {
                     if (info.TOT.categories[i].name.substring(3) == categoryname) {
                         var category = info.TOT.categories[i];
                         console.log(category);
+                        $('#title').text(category.name);
+
+                        drawChartSubCategories(category);
+
+                        $('#myModal').modal('show');
                     }
                 }
 
@@ -500,6 +561,30 @@
     }
 
 
+    function drawChartSubCategories(category) {
+        data = setDataForChartSubcategories(category);
+        options = setOptionsForSubCategories();
+
+
+        var chart = new google.visualization.PieChart(document.getElementById('subcatChart'));
+        chart.draw(data, options);
+    }
+
+    function setDataForChartSubcategories(category) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Category');
+        data.addColumn('number', 'Value');
+        data.addRows(category.subcategories.length);
+        var count = 0;
+        for (var i = 0; i < category.subcategories.length; i++) {
+
+            data.setCell(i, count, category.subcategories[i].name.substring(3));
+            count++;
+            data.setCell(i, count, category.subcategories[i].value);
+            count = 0;
+        }
+        return data;
+    }
 </script>
 
 <script>
