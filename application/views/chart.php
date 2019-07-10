@@ -14,8 +14,9 @@
             </div>
             <div class="modal-body">
                 <section id="content">
-                    <div id="subcatChart" style="width: 90%; height:50%;"></div>
+                    <div id="subcatChart" style="width: 1000px !important; height:50%;"></div>
                     <p></p>
+                    <div id="linechart" style="width: 900px; height: 500px"></div>
                 </section>
             </div>
             <div class="modal-footer">
@@ -28,7 +29,7 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    info = {
+    var info = {
         "TOT": {
             "id": "TOT",
             "name": "Total",
@@ -476,12 +477,12 @@
     };
 
     google.charts.load("current", {packages: ["corechart"]});
-    google.charts.setOnLoadCallback(drawChartCategories);
+    google.charts.setOnLoadCallback(drawPieChartCategories);
 
-    function drawChartCategories() {
+    function drawPieChartCategories() {
 
-        dataCat = setDataForChartCategories();
-        options = setOptions();
+        dataCat = setDataForPieChartCategories();
+        options = setOptionsForPieChart();
 
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
@@ -491,7 +492,7 @@
 
     }
 
-    function setDataForChartCategories() {
+    function setDataForPieChartCategories() {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Category');
         data.addColumn('number', 'Value');
@@ -507,7 +508,7 @@
         return data;
     }
 
-    function setOptions() {
+    function setOptionsForPieChart() {
         var options = {
             title: 'Budget data per category',
             pieHole: 0.65,
@@ -520,7 +521,8 @@
 
         return options;
     }
-    function setOptionsForSubCategories() {
+
+    function setOptionsForSubCategoriesPieChart() {
         var options = {
             title: 'Budget data per category',
             /*pieHole: 0.65,*/
@@ -549,7 +551,8 @@
                         console.log(category);
                         $('#title').text(category.name);
 
-                        drawChartSubCategories(category);
+                        drawPieChartSubCategories(category);
+                        drawLineChartTimelineSubcats(category);
 
                         $('#myModal').modal('show');
                     }
@@ -560,17 +563,17 @@
         }
     }
 
+    function drawPieChartSubCategories(category) {
 
-    function drawChartSubCategories(category) {
-        data = setDataForChartSubcategories(category);
-        options = setOptionsForSubCategories();
+        data = setDataForPieChartSubcategories(category);
+        options = setOptionsForSubCategoriesPieChart();
 
 
         var chart = new google.visualization.PieChart(document.getElementById('subcatChart'));
         chart.draw(data, options);
     }
 
-    function setDataForChartSubcategories(category) {
+    function setDataForPieChartSubcategories(category) {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Category');
         data.addColumn('number', 'Value');
@@ -584,6 +587,42 @@
             count = 0;
         }
         return data;
+    }
+
+    function drawLineChartTimelineSubcats(category) {
+
+        data = setDataForLineChartSubcat(category);
+        options = setOptionsForLineChart();
+
+        var chart = new google.visualization.LineChart(document.getElementById('linechart'));
+
+        chart.draw(data, options);
+    }
+
+    function  setDataForLineChartSubcat(category) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Category');
+        data.addColumn('number', 'Value');
+        data.addRows(category.subcategories.length);
+        var count = 0;
+        for (var i = 0; i < category.subcategories.length; i++) {
+
+            data.setCell(i, count, category.subcategories[i].name.substring(3));
+            count++;
+            data.setCell(i, count, category.subcategories[i].value);
+            count = 0;
+        }
+        return data;
+
+    }
+
+    function setOptionsForLineChart(){
+        var options = {
+            title: 'Timeline',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+        };
+        return options;
     }
 </script>
 
