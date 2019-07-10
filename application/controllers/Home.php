@@ -17,17 +17,6 @@
             $this->template->load('main_master', $partials, $data);
         }
 
-        public function index2() {
-            $data['titel'] = 'About';
-
-            $this->load->model('category_model');
-            $data['categories'] = $this->category_model->getAllByNaam();
-            $partials = array('hoofding' => 'main_header',
-                'nav' => 'main_nav',
-                'inhoud' => 'piechart_NL');
-            $this->template->load('main_master', $partials, $data);
-        }
-
         public function index3() {
             $data['titel'] = 'About';
 
@@ -36,7 +25,7 @@
 
             $partials = array('hoofding' => 'main_header',
                 'nav' => 'main_nav',
-                'inhoud' => 'test');
+                'inhoud' => 'chart');
             $this->template->load('main_master', $partials, $data);
         }
     }
