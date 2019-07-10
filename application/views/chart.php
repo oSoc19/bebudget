@@ -454,22 +454,22 @@
 
     function drawChart() {
         var data = new google.visualization.DataTable();
-        data.addColumn('string','Category');
-        data.addColumn('number','Value');
+        data.addColumn('string', 'Category');
+        data.addColumn('number', 'Value');
         data.addRows(10);
         var count = 0;
         for (var i = 0; i < info.TOT.categories.length; i++) {
 
-            data.setCell(i,count,info.TOT.categories[i].name.substring(3));
+            data.setCell(i, count, info.TOT.categories[i].name.substring(3));
             count++;
-            data.setCell(i,count,info.TOT.categories[i].value);
-            count=0;
+            data.setCell(i, count, info.TOT.categories[i].value);
+            count = 0;
         }
 
         var options = {
             title: 'Budget data per category',
             pieHole: 0.65,
-            colors: ['#4ABEDF','#FFF728','#6A6A68',  '#FF5360',  '#BBAB8B','#C59EF6','#EF8275','#E7EB90','#9DC0BC','#C89F9C'],
+            colors: ['#4ABEDF', '#FFF728', '#6A6A68', '#FF5360', '#BBAB8B', '#C59EF6', '#EF8275', '#E7EB90', '#9DC0BC', '#C89F9C'],
             enableInteractivity: true,
             /*pieSliceText: 'percentage'*/
             /*reverseCategories:true,*/
@@ -485,12 +485,19 @@
             var selectedItem = chart.getSelection()[0];
 
             if (selectedItem) {
-                var category = data.getValue(selectedItem.row, 0);
-                alert('this was clicked: ' + category);
+                var categoryname = data.getValue(selectedItem.row, 0);
+                alert('this was clicked: ' + categoryname);
+                for (var i = 0; i < info.TOT.categories.length; i++) {
+                    if (info.TOT.categories[i].name.substring(3) == categoryname) {
+                        var category = info.TOT.categories[i];
+                        console.log(category);
+                    }
+                }
+
+
             }
         }
     }
-
 
 
 </script>
