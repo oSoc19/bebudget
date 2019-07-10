@@ -72,7 +72,6 @@
                             $data[$line[0]] = $total;
                             $category = new stdClass();
                             $count=0;
-
                         }
 
                         if ($line[0] !== 'TOT' && strlen($line[0]) === 3) {
@@ -93,11 +92,11 @@
                             if (empty((array)$category) && empty($dataTotal) === false) {
                                 $dataTotal[$previous_id]->subcategories[] = $subcategory;
 
-
                             } else {
                                 $category->subcategories[] = $subcategory;
 
                                 $dataTotal[$category->id] = $category;
+
                                 if (empty((array)$category) && empty($data) === false && $count==1) {
                                     $total->categories[] = $category;
                                     $count++;
@@ -105,6 +104,7 @@
                                     $total->categories[] = $category;
                                     $count++;
                                 }
+
                             }
 
                             $category = new stdClass();
