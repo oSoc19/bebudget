@@ -10,9 +10,6 @@
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
-    <link rel="stylesheet" href="../../assets/css/quiz.css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-
     <?php
     echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "quiz.css") . "\" />";
     echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "style.css") . "\" />";

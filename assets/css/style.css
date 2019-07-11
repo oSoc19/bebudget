@@ -96,7 +96,8 @@ h1{
 #nav a,
 #lang a,
 #buttons .btn,
-p {
+p,
+body{
     font-family: 'Nunito', sans-serif !important;
 
 }
@@ -116,3 +117,8 @@ footer a {
     color: #fff;
     text-decoration: underline;
 }
+#donutchart{
+    min-height: 900px;
+    width: 100%;
+}
+

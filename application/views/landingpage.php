@@ -21,7 +21,7 @@
                 <p class="lead">
                 <div id="buttons">
                     <a href="#quiz" class="js-scroll-trigger btn btn-outline-dark">Yes, test me</a>
-                    <a href="#graph" class="btn btn-outline-dark">No, learn more</a>
+                    <a href="#graph" class=" js-scroll-trigger btn btn-outline-dark">No, learn more</a>
                 </div>
                 </p>
             </div>
