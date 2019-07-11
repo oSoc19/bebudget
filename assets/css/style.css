@@ -5,6 +5,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    /*background: rgb(255,240,221);
+    background: linear-gradient(140deg, rgba(255,240,221,1) 25%, rgba(23,139,172,1) 100%);*/
 }
 
 #buttons {
@@ -13,7 +15,8 @@
     justify-content: center;
 }
 
-#buttons p, #buttons a {
+#buttons p,
+#buttons a {
     font-size: 1.25rem;
     margin: 0 20px;
 }
@@ -26,7 +29,8 @@
     margin-right: -40%;
 }
 
-#nav, #lang {
+#nav,
+#lang {
     background-color: transparent;
     text-align: center;
     font-size: large;
@@ -62,20 +66,55 @@
         width: 50%;
     }
 }
+
 @media screen and (max-width: 992px) {
-    #nav{
+    #nav {
         position: relative;
         top: 10%;
     }
-    #lang{
+
+    #lang {
         width: 30%;
     }
 }
 
-a{
+a {
     color: #000;
 }
 
-#myModal{
+#myModal {
     width: 90% !important;
 }
+
+#nav a,
+#lang a,
+p,
+h1,
+.btn {
+    color: #0A0839;
+}
+
+#nav a,
+#lang a,
+.btn,
+p {
+    font-family: 'Nunito', sans-serif;
+
+}
+
+h1, .h1 {
+    font-family: 'Poppins', sans-serif;
+    /*text-transform: uppercase;*/
+
+    /*font-weight: bold;*/
+}
+
+/*font-family: 'Nunito', sans-serif;
+font-family: 'Noto Sans HK', sans-serif;
+font-family: 'Mallanna', sans-serif;
+font-family: 'Mandali', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Overpass', sans-serif;
+font-family: 'Signika', sans-serif;
+*/
