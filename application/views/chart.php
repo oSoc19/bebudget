@@ -1,4 +1,4 @@
-<div id="donutchart" style="width: 1200px; height: 700px;"></div>
+<div id="donutchart"></div>
 
 
 <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -960,9 +960,9 @@
             pieHole: 0.65,
             colors: ['#4ABEDF', '#FFF728', '#6A6A68', '#FF5360', '#BBAB8B', '#C59EF6', '#EF8275', '#E7EB90', '#9DC0BC', '#C89F9C'],
             enableInteractivity: true,
-            /*pieSliceText: 'percentage'*/
-            /*reverseCategories:true,*/
-            tooltip: {textStyle: {color: 'black'}, showColorCode: true}
+            tooltip: {textStyle: {color: 'black'}, showColorCode: true},
+            'width':1200,
+            'height':700
         };
 
         return options;
@@ -974,7 +974,7 @@
 
             colors: ['#4ABEDF', '#FFF728', '#6A6A68', '#FF5360', '#BBAB8B', '#C59EF6', '#EF8275', '#E7EB90', '#9DC0BC', '#C89F9C'],
             enableInteractivity: true,
-            /*ieSliceText: 'percentage',*/
+            pieSliceText: 'none',
             /*reverseCategories:true,*/
             tooltip: {textStyle: {color: 'black'}, showColorCode: true},
             'width':400,
