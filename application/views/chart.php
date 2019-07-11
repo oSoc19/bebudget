@@ -951,6 +951,7 @@
             data.setCell(i, count, info.TOT.categories[i].value);
             count = 0;
         }
+        data.sort({column: 1, desc: true});
         return data;
     }
 
@@ -958,27 +959,11 @@
         var options = {
             title: 'Budget data per category',
             pieHole: 0.65,
-            colors: ['#4ABEDF', '#FFF728', '#6A6A68', '#FF5360', '#BBAB8B', '#C59EF6', '#EF8275', '#E7EB90', '#9DC0BC', '#C89F9C'],
+            colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
             enableInteractivity: true,
             tooltip: {textStyle: {color: 'black'}, showColorCode: true},
             'width':1200,
             'height':700
-        };
-
-        return options;
-    }
-
-    function setOptionsForSubCategoriesPieChart() {
-        var options = {
-            title: 'Budget data per category',
-
-            colors: ['#4ABEDF', '#FFF728', '#6A6A68', '#FF5360', '#BBAB8B', '#C59EF6', '#EF8275', '#E7EB90', '#9DC0BC', '#C89F9C'],
-            enableInteractivity: true,
-            pieSliceText: 'none',
-            /*reverseCategories:true,*/
-            tooltip: {textStyle: {color: 'black'}, showColorCode: true},
-            'width':400,
-            'height':300
         };
 
         return options;
@@ -1034,7 +1019,23 @@
             data.setCell(i, count, category.subcategories[i].value);
             count = 0;
         }
+        data.sort({column: 1, desc: true});
         return data;
+    }
+
+    function setOptionsForSubCategoriesPieChart() {
+        var options = {
+            title: 'Budget data per category',
+
+            colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
+            enableInteractivity: true,
+            pieSliceText: 'none',
+            tooltip: {textStyle: {color: 'black'}, showColorCode: true},
+            'width':600,
+            'height':400
+        };
+
+        return options;
     }
 
    /* function drawLineChartTimelineSubcats(category) {

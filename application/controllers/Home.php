@@ -20,19 +20,8 @@
                 'nav' => 'main_nav',
                 'landingspage' => 'landingpage',
                 'quiz' => 'quiz_view',
-                'graph' => 'chart');
-            $this->template->load('main_master', $partials, $data);
-        }
-
-        public function index3() {
-            $data['titel'] = 'About';
-
-            $this->load->model('expense_model');
-            $data['expenses'] = $this->expense_model->getCategories();
-
-            $partials = array(
-                'landingpage' => 'landingpage',
-                'quiz' => 'quiz');
+                'graph' => 'chart',
+                'footer' => 'footer');
             $this->template->load('main_master', $partials, $data);
         }
     }

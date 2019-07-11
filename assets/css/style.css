@@ -88,7 +88,6 @@ a {
 
 #nav a,
 #lang a,
-p,
 #buttons .btn,
 h1{
     color: #0A0839;
@@ -104,4 +103,16 @@ p {
 
 h1, .h1 {
     font-family: 'Poppins', sans-serif;
+}
+
+
+#buttons .btn:hover {
+    color: whitesmoke;
+    background-color: #0A0839;
+}
+
+
+footer a {
+    color: #fff;
+    text-decoration: underline;
 }

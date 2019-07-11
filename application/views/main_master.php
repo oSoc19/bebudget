@@ -13,8 +13,13 @@
     <link rel="stylesheet" href="../../assets/css/quiz.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
 
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.js"
+    <?php
+    echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "quiz.css") . "\" />";
+    echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "style.css") . "\" />";
+    ?>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
     <script type="text/javascript"
@@ -37,8 +42,13 @@
 
 <body>
 <?php echo $landingspage; ?>
-<?php echo $quiz; ?>
-<?php echo $graph; ?>
+<div id="quiz">
+    <?php echo $quiz; ?>
+</div>
+<div id="graph">
+    <?php echo $graph; ?>
+</div>
+<?php echo $footer; ?>
 
 <div id="upload-form" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
