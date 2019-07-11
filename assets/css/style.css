@@ -89,32 +89,19 @@ a {
 #nav a,
 #lang a,
 p,
-h1,
-.btn {
+#buttons .btn,
+h1{
     color: #0A0839;
 }
 
 #nav a,
 #lang a,
-.btn,
+#buttons .btn,
 p {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', sans-serif !important;
 
 }
 
 h1, .h1 {
     font-family: 'Poppins', sans-serif;
-    /*text-transform: uppercase;*/
-
-    /*font-weight: bold;*/
 }
-
-/*font-family: 'Nunito', sans-serif;
-font-family: 'Noto Sans HK', sans-serif;
-font-family: 'Mallanna', sans-serif;
-font-family: 'Mandali', sans-serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'Raleway', sans-serif;
-font-family: 'Overpass', sans-serif;
-font-family: 'Signika', sans-serif;
-*/
