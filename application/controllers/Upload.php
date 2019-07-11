@@ -17,9 +17,7 @@
 
                 $data['title'] = 'Upload CSV file';
 
-                $partials = array('hoofding' => 'main_header',
-                    'inhoud' => 'upload_form');
-                $this->template->load('main_master', $partials, $data);
+                $this->load->view('upload_form', $data);
             } else {
                 redirect('/home');
             }
@@ -43,9 +41,7 @@
                 $this->filtercsv($year);
             }
 
-            $partials = array('hoofding' => 'main_header',
-                'inhoud' => 'upload_form');
-            $this->template->load('main_master', $partials, $data);
+            $this->load->view('upload_form', $data);
         }
 
         private function filtercsv($year) {
