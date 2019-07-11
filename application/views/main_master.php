@@ -30,6 +30,7 @@
 
 	<?php echo $landingspage; ?>
 	<?php echo $quiz; ?>
+    <?php echo $graph; ?>
 
 	<div id="upload-form" class="modal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">

@@ -19,7 +19,8 @@
             $partials = array(
                 'nav' => 'main_nav',
                 'landingspage' => 'landingpage',
-                'quiz' => 'quiz_view');
+                'quiz' => 'quiz_view',
+                'graph' => 'chart');
             $this->template->load('main_master', $partials, $data);
         }
 
@@ -29,9 +30,9 @@
             $this->load->model('expense_model');
             $data['expenses'] = $this->expense_model->getCategories();
 
-            $partials = array('hoofding' => 'main_header',
-                'nav' => 'main_nav',
-                'inhoud' => 'chart');
+            $partials = array(
+                'landingpage' => 'landingpage',
+                'quiz' => 'quiz');
             $this->template->load('main_master', $partials, $data);
         }
     }
