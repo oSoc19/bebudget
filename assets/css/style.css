@@ -75,3 +75,7 @@
 a{
     color: #000;
 }
+
+#myModal{
+    width: 90% !important;
+}
