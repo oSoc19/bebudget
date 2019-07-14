@@ -6,8 +6,6 @@
         public function __construct() {
             parent::__construct();
 
-            //            $url = 'http://84.195.17.11/api/2017.json';
-            //            $this->data = json_decode(file_get_contents($url));
             $this->data = json_decode(file_get_contents('./uploads/2017.json'));
 
             $this->load->helper('form');
@@ -120,9 +118,9 @@
             $answer3 = $category->value;
 
             // Turn the million number into a nice text e.g.: 7485 => 7.49 Billion
-            $answer1 = $this->prettifyNumber((string)$answer1 . "000000");
-            $answer2 = $this->prettifyNumber((string)$answer2 . "000000");
-            $answer3 = $this->prettifyNumber((string)$answer3 . "000000");
+            $answer1 = '€' . $this->prettifyNumber((string)$answer1 . "000000");
+            $answer2 = '€' . $this->prettifyNumber((string)$answer2 . "000000");
+            $answer3 = '€' . $this->prettifyNumber((string)$answer3 . "000000");
 
             // Add the answers to their array
             $answers[] = $answer1;
@@ -164,19 +162,14 @@
             $answer3 = $category->value;
 
             // Convert millions to percentages
-            $percentage1 = round(($answer1 / $total) * 100, 2);
-            $percentage2 = round(($answer2 / $total) * 100, 2);
-            $percentage3 = round(($answer3 / $total) * 100, 2);
-
-            // Make a sentence with the percentages and put in in perspective with euros
-            $answer1 = $percentage1 . "% or €" . round($percentage1 * 10) . ' from €1000';
-            $answer2 = $percentage2 . "% or €" . round($percentage2 * 10) . ' from €1000';
-            $answer3 = $percentage3 . "% or €" . round($percentage3 * 10) . ' from €1000';
+            $percentage1 = round(($answer1 / $total) * 100, 2) . '%';
+            $percentage2 = round(($answer2 / $total) * 100, 2) . '%';
+            $percentage3 = round(($answer3 / $total) * 100, 2) . '%';
 
             // Add the answers to their array
-            $answers[] = $answer1;
-            $answers[] = $answer2;
-            $answers[] = $answer3;
+            $answers[] = $percentage1;
+            $answers[] = $percentage2;
+            $answers[] = $percentage3;
 
             // Shuffle the answers
             shuffle($answers);
@@ -184,7 +177,7 @@
             // Prepare object and pass to frontend
             $data->category = $category->name;
             $data->answers = $answers;
-            $data->correctAnswer = $answer3;
+            $data->correctAnswer = $percentage3;
             return $data;
 
         }
@@ -252,11 +245,14 @@
         }
 
         private function prettifyNumber($number) {
+            // Don't include commas or dots in the number
             $number = str_replace(",", "", $number);
             $number = str_replace(".", "", $number);
 
+            // Check if the number is an actual number
             if (!is_numeric($number)) return false;
 
+            // Put the correct value behind the number
             if ($number > 1000000000000) return round(($number / 1000000000000), 2) . ' trillion';
             elseif ($number > 1000000000) return round(($number / 1000000000), 2) . ' billion';
             elseif ($number > 1000000) return round(($number / 1000000), 2) . ' million';
