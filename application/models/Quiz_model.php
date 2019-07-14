@@ -14,13 +14,20 @@
         public function generateQuestions() {
 
             $numberOfQuestions = 5;
+            $questionType = -1;
             $questions = array();
 
             for ($i = 0; $i < $numberOfQuestions; $i++) {
-                $random = rand(0, 3);
+
+                if ($questionType < 3) {
+                    $questionType++;
+                } else {
+                    $questionType = rand(0, 3);
+                }
+
                 $question = new stdClass();
 
-                switch ($random) {
+                switch ($questionType) {
                     case 0:
                         $data = $this->generateThreeCategories();
                         $question->question = 'Where does the government spend most?';
@@ -54,6 +61,8 @@
                         $questions[] = $question;
                         break;
                 }
+
+
             }
 
             return $questions;
