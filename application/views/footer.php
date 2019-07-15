@@ -1,39 +1,34 @@
-<footer class="section footer-classic context-dark bg-image text-light p-3">
+<footer class="section footer-classic context-dark bg-image text-light p-3" style="background: #2d3246;">
     <div class="container">
         <div class="row row-30">
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-4 col-xl-5">
                 <div class="pr-xl-4">
-                    <p>The data used in this website is from the year 2017. NBB adheres to the European data reporting
-                        schedule, therefore the 2018 figures will be available from September 2019 onwards</p>
+                    <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
                 </div>
             </div>
-
-            <div class="col-md-8 col-sm-12 row">
-
-                <div class="col-md-4 col-sm-12 logo">
-                    <a href="https://2019.summerofcode.be/">
-                        <?php
-                        echo "<img src=\"" . base_url("assets/images/" . "osoc.svg") . "\" />";
-                        ?>
-                    </a>
-                    <p>Made with love at <a href="https://2019.summerofcode.be/">oSoc</a></p>
-                </div>
-                <div class="col-md-4 col-sm-12 logo">
-                    <a href="https://bosa.belgium.be/nl">
-                        <?php
-                        echo "<img src=\"" . base_url("assets/images/" . "bosa.svg") . "\" />";
-                        ?>
-                    </a>
-                    <p>In partnership with <a href="https://bosa.belgium.be/nl">BOSA</a></p>
-                </div>
-                <div class="col-md-4 col-sm-12 logo">
-                    <a href="https://stat.nbb.be/">
-                        <?php
-                        echo "<img src=\"" . base_url("assets/images/" . "nbb.svg") . "\" />";
-                        ?>
-                    </a>
-                    <p> Source: <a href="https://stat.nbb.be/">NBB</a></p>
-                </div>
+            <div class="col-md-4">
+                <h5>Contacts</h5>
+                <dl class="contact-list">
+                    <dt>Address:</dt>
+                    <dd>798 South Park Avenue, Jaipur, Raj</dd>
+                </dl>
+                <dl class="contact-list">
+                    <dt>email:</dt>
+                    <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
+                </dl>
+                <dl class="contact-list">
+                    <dt>phones:</dt>
+                    <dd><a href="tel:#">+91 7568543012</a> <span>or</span> <a href="tel:#">+91 9571195353</a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-md-4 col-xl-3">
+                <h5>Links</h5>
+                <ul class="nav-list">
+                    <li><a href="https://bosa.belgium.be/nl">BOSA</a></li>
+                    <li><a href="https://stat.nbb.be/">NBB</a></li>
+                    <li><a href="https://2019.summerofcode.be/">oSoc</a></li>
+                </ul>
             </div>
         </div>
     </div>
