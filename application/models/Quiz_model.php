@@ -7,6 +7,7 @@
             parent::__construct();
 
             $this->data = json_decode(file_get_contents('./uploads/data.json'));
+            $this->usedCategories = array();
 
             $this->load->helper('form');
         }
@@ -87,6 +88,9 @@
                     // Add the random category to its array
                     $categories[] = $category;
 
+                    // Keep category in global array so it can't be used again
+                    $this->usedCategories[] = $category;
+
                     // Add random category to previousCategory array so it can't be picked again
                     $previousCategories[] = $random;
                 } else {
@@ -105,10 +109,21 @@
         private function generateCategoryWithAnswers() {
             $data = new stdClass();
             $answers = array();
+            $categoryAvailable = TRUE;
 
-            // Pick a random category
-            $random = rand(0, count((array)$this->data->{'TOT'}->categories) - 1);
-            $category = $this->data->{'TOT'}->categories[$random];
+            // Pick a different category if the current one is already used in a different question
+            while ($categoryAvailable) {
+                // Pick a random category
+                $random = rand(0, count((array)$this->data->{'TOT'}->categories) - 1);
+                $category = $this->data->{'TOT'}->categories[$random];
+
+                // Check if the category is available
+                if (!in_array($category, $this->usedCategories)) {
+                    $this->usedCategories[] = $category;
+                    $categoryAvailable = FALSE;
+                }
+            }
+
 
             // Remove the numbers from the name of the category
             $category->name = $this->removeNumbersFromName($category->name);
@@ -146,11 +161,20 @@
         private function generateCategoryWithAnswersInPercentages() {
             $data = new stdClass();
             $answers = array();
+            $categoryAvailable = TRUE;
 
-            // Pick a random category
-            $random = rand(0, count((array)$this->data->{'TOT'}->categories) - 1);
-            $category = $this->data->{'TOT'}->categories[$random];
+            // Pick a different category if the current one is already used in a different question
+            while ($categoryAvailable) {
+                // Pick a random category
+                $random = rand(0, count((array)$this->data->{'TOT'}->categories) - 1);
+                $category = $this->data->{'TOT'}->categories[$random];
 
+                // Check if the category is available
+                if (!in_array($category, $this->usedCategories)) {
+                    $this->usedCategories[] = $category;
+                    $categoryAvailable = FALSE;
+                }
+            }
             // Remove the numbers from the name of the category
             $category->name = $this->removeNumbersFromName($category->name);
 
@@ -202,6 +226,14 @@
                 if ($previousCategory !== $random) {
                     // Pick a random category
                     $category = $this->data->{'TOT'}->categories[$random];
+
+                    // Check if the category is available
+                    if (!in_array($category, $this->usedCategories)) {
+                        $this->usedCategories[] = $category;
+                    } else {
+                        $i--;
+                        continue;
+                    }
 
                     // Remove the numbers from the name of the category
                     $category->name = $this->removeNumbersFromName($category->name);
