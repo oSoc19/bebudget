@@ -1,6 +1,6 @@
 <div class="upform">
     <form>
-        <div class="upform-header">Test yourself</div>
+        <div class="upform-header">Test yourself with these <?php echo count($questions); ?> questions</div>
 
         <div class="upform-main">
             <?php
@@ -16,7 +16,7 @@
                                     if (is_object($answer)) {
                                         $dataRadio = array(
                                             'name' => "givenAnswer$key",
-                                            'value' => $answer->value,
+                                            'value' => $answer->name,
                                             'type' => 'radio',
                                             'class' => 'toggle',
                                             'id' => $count,
@@ -75,6 +75,12 @@
             // Check if the clicked answer is correct
             if (givenAnswer === correctAnswer) {
                 score++;
+
+                // Add check icon to question
+                $(this).parent().parent().find('.label').append('<i class="far fa-check-circle hidden"></i>');
+            } else{
+                // Add wrong icon to question
+                $(this).parent().parent().find('.label').append('<i class="far fa-times-circle hidden"></i>');
             }
 
             // Add the correct answer to the array
@@ -91,32 +97,31 @@
                 // Show the score
                 $('#score').text('Your score is: ' + score + '/' + amountOfQuestions);
 
-                //TODO ask help for this
+                // Show the check or wrong icons
+                $('i').removeClass('hidden');
+
                 for (let i = 0; i < questions.length; i++) {
                     let correctAnswer = correctAnswers[i];
-
                     let question = questions[i];
 
+                    // Get the buttons for this question
                     let buttons = $(question).find('.answerButton');
 
                     for (let i = 0; i < buttons.length; i++) {
                         let button = buttons[i];
-                        console.log($(button)[0].innerText, correctAnswer);
+
+                        // Check if the text of the button is the same as the correct answer for that question
                         if ($(button)[0].innerText === correctAnswer) {
-                            $(button).addClass('green');
+                            $(button).addClass('correctAnswer');
+                        } else {
+                            $(button).addClass('fadedButton');
                         }
                     }
-
-
                 }
-
-                // TODO add text like "Scroll back up to see which were the correct answers"
             }
         })
-        ;
 
     })
-    ;
 
 </script>
 

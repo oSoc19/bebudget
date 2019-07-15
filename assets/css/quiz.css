@@ -11,10 +11,12 @@
 #score {
     margin-top: 40px;
     text-align: center;
+    color: #FFF;
+    padding-bottom: 20px;
 }
 
 .answerButton {
-    border: 1px solid #808080;
+    border: 1px solid #FFF;
     display: inline-block;
     padding: 5px 10px;
     font-size: 20px;
@@ -24,10 +26,6 @@
     -webkit-transition: background 600ms ease, color 600ms ease;
     transition: background 600ms ease, color 600ms ease;
     margin-right: 8px;
-}
-
-.green{
-    background-color: green !important;
 }
 
 .continueButton {
@@ -41,6 +39,24 @@
     margin-top: 10px;
 }
 
+.fadedButton {
+    opacity: 0.6;
+}
+
+.correctAnswer {
+    color: #0A0839 !important;
+    font-weight: bold;
+    border: 1px solid #44DBA4;
+    background-color: #44DBA4 !important;
+
+}
+
+#quiz {
+    background-color: #0A0839;
+    color: #FFF;
+    padding-top: 20px;
+}
+
 input[type="radio"].toggle {
     display: none;
 }
@@ -48,7 +64,7 @@ input[type="radio"].toggle {
 input[type="radio"].toggle + label {
     cursor: pointer;
     min-width: 80px;
-    color: #0A0839;
+    color: #FFF;
 }
 
 input[type="radio"].toggle + label:hover {
@@ -57,15 +73,16 @@ input[type="radio"].toggle + label:hover {
 }
 
 input[type="radio"].toggle + label[disabled] {
-    background-color: #FAFAFA;
-    color: #B0B0B0;
+    background-color: #0A0839;
+    color: #FFF;
     cursor: default;
 }
 
 input[type="radio"].toggle:checked + label {
-    background: #0A0839;
+    background: #FFF;
     cursor: default;
-    color: #FFF;
+    color: #0A0839;
+    font-weight: bold;
 }
 
 input[type="radio"].toggle:checked + label:after {
@@ -80,23 +97,19 @@ input[type="radio"].toggle:checked + label:after {
     -ms-user-select: none;
     user-select: none;
     max-width: 80%;
-    margin: 300px auto;
+    margin: auto;
     margin-bottom: 500px;
-    padding: 0 20px;
 }
 
 .upform .upform-main .input-block {
     padding: 30px;
     opacity: 0.25;
     cursor: default;
-    background-color: #fff0dd;
-    border: 1px solid #0A0839;
-    border-radius: 3px;
 }
 
 .upform .upform-main .input-block .label {
     display: block;
-    font-size: 1.1em;
+    font-size: 25px;
     line-height: 30px;
 }
 
@@ -127,8 +140,11 @@ input[type="radio"].toggle:checked + label:after {
     padding: 5px 20px;
 }
 
-.upform-header{
+.upform-header {
     text-align: center;
     font-size: 35px;
-    margin: 20px 0;
+    margin: 0 0 20px 0;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-family: 'Poppins', sans-serif;
 }

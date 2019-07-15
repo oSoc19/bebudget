@@ -6,7 +6,7 @@
         public function __construct() {
             parent::__construct();
 
-            $this->data = json_decode(file_get_contents('./uploads/2017.json'));
+            $this->data = json_decode(file_get_contents('./uploads/data.json'));
 
             $this->load->helper('form');
         }
@@ -61,8 +61,6 @@
                         $questions[] = $question;
                         break;
                 }
-
-
             }
 
             return $questions;
@@ -72,7 +70,6 @@
         private function generateThreeCategories() {
             $categories = array();
             $previousCategories = array();
-            $values = array();
             $data = new stdClass();
 
             for ($i = 0; $i < 3; $i++) {
@@ -87,9 +84,8 @@
                     // Remove the numbers from the name of the category
                     $category->name = $this->removeNumbersFromName($category->name);
 
-                    // Add the random category to the array and save its value
+                    // Add the random category to its array
                     $categories[] = $category;
-                    $values[] = $category->value;
 
                     // Add random category to previousCategory array so it can't be picked again
                     $previousCategories[] = $random;
@@ -101,7 +97,7 @@
 
             // Prepare object and pass to frontend
             $data->categories = $categories;
-            $data->correctAnswer = max($values);
+            $data->correctAnswer = $category->name;
             return $data;
         }
 
