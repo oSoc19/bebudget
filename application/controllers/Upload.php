@@ -103,6 +103,7 @@
             }
 
             file_put_contents('./uploads/' . $year . '.json', json_encode($data));
+            file_put_contents('./uploads/data.json', json_encode($data));
         }
 
         public function checkPassword() {
