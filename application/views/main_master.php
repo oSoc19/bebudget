@@ -76,7 +76,7 @@
 
 
 <?php
-echo "<script src=\"" . base_url("assets/js/" . "scroll.min.js") . "\"></script>";
+echo "<script src=\"" . base_url("assets/js/" . "scroll.js") . "\"></script>";
 ?>
 
 </body>

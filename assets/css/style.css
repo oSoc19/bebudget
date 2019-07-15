@@ -83,7 +83,7 @@ a {
 }
 
 #myModal {
-    width: 90% !important;
+    width: 100% !important;
 }
 
 #nav a,
@@ -120,5 +120,13 @@ footer a {
 #donutchart{
     min-height: 900px;
     width: 100%;
+}
+
+#subcatChart div, #subcatChart svg{
+    max-width: 100% !important;
+}
+
+#subcatChart svg g:nth-of-type(2) rect{
+    margin-top: 50%;
 }
 

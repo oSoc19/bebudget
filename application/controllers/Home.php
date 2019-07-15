@@ -17,7 +17,6 @@
             $data['questions'] = $questions;
 
             $partials = array(
-                'nav' => 'main_nav',
                 'landingspage' => 'landingpage',
                 'quiz' => 'quiz_view',
                 'graph' => 'chart',
