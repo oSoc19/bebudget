@@ -29,7 +29,7 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 
-    $.getJSON("uploads/2017.json", function(info) {
+    $.getJSON("uploads/data.json", function(info) {
         
         google.charts.load("current", {packages: ["corechart"]});
         google.charts.setOnLoadCallback(drawPieChartCategories);
