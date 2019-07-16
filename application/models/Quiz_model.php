@@ -6,13 +6,16 @@
         public function __construct() {
             parent::__construct();
 
-            $this->data = json_decode(file_get_contents('./uploads/data.json'));
+            $data_language = $this->config->config['language'];
+            $this->data = json_decode(file_get_contents("./uploads/data_$data_language.json"));
             $this->usedCategories = array();
 
             $this->load->helper('form');
         }
 
         public function generateQuestions() {
+//            $data_language = $this->config->config['language'];
+//            $this->data = json_decode(file_get_contents("./uploads/data_$data_language.json"));
 
             $numberOfQuestions = 5;
             $questionType = -1;
@@ -31,7 +34,7 @@
                 switch ($questionType) {
                     case 0:
                         $data = $this->generateThreeCategories();
-                        $question->question = 'Where does the government spend most?';
+                        $question->question = $this->lang->line("quiz_question1");
                         $question->answers = $data->categories;
                         $question->correctAnswer = $data->correctAnswer;
 
@@ -39,7 +42,7 @@
                         break;
                     case 1:
                         $data = $this->generateCategoryWithAnswers();
-                        $question->question = 'How much money is spent on ' . $data->category . '?';
+                        $question->question = $this->lang->line("quiz_question2") . $data->category . '?';
                         $question->answers = $data->answers;
                         $question->correctAnswer = $data->correctAnswer;
 
@@ -47,7 +50,7 @@
                         break;
                     case 2:
                         $data = $this->generateCategoryWithAnswersInPercentages();
-                        $question->question = 'What percentage of government expenditure goes to ' . $data->category . '?';
+                        $question->question = $this->lang->line("quiz_question3") . $data->category . '?';
                         $question->answers = $data->answers;
                         $question->correctAnswer = $data->correctAnswer;
 
@@ -55,7 +58,7 @@
                         break;
                     case 3:
                         $data = $this->generateTwoCategories();
-                        $question->question = 'More is spent on ' . $data->firstCategory . ' than ' . $data->secondCategory . '.';
+                        $question->question = $this->lang->line("quiz_question4_first") . $data->firstCategory . $this->lang->line("quiz_question4_second") . $data->secondCategory . '.';
                         $question->answers = $data->answers;
                         $question->correctAnswer = $data->correctAnswer;
 
