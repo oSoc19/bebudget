@@ -119,6 +119,9 @@
 
             file_put_contents('./uploads/' . $year . '.json', json_encode($data));
             file_put_contents('./uploads/data.json', json_encode($data));
+
+
+            /*$this->config->config['date'] = date("Y/m/d");*/
         }
 
         public function checkPassword() {
