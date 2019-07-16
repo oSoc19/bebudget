@@ -80,7 +80,7 @@
 
                 // Check if the random number is already in the array so it can't pick the same category twice
                 if (!in_array($random, $previousRandomNumbers, TRUE)) {
-                    // Pick a random category and save its value
+                    // Pick a random category
                     $category = $this->data->{'TOT'}->categories[$random];
 
                     // Remove the numbers from the name of the category
