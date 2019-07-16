@@ -1,6 +1,6 @@
 <div class="upform">
     <form>
-        <div class="upform-header">Test yourself with these <?php echo count($questions); ?> questions</div>
+        <div class="upform-header"><?php echo $this->lang->line('quiz_title'); ?></div>
 
         <div class="upform-main">
             <?php
@@ -47,7 +47,7 @@
                 <?php } ?>
         </div>
 
-        <h1 id="score"></h1>
+        <h1 id="score" class="hidden"><?php echo $this->lang->line('quiz_score'); ?></h1>
 
     </form>
 </div>
@@ -94,7 +94,7 @@
             // Check if the current input block is the last one
             if (current.is(lastQuestion)) {
                 // Show the score
-                $('#score').text('Your score is: ' + score + '/' + amountOfQuestions);
+                $('#score').removeClass('hidden').append(score + '/' + amountOfQuestions);
 
                 // Show the check or wrong icons
                 $('i').removeClass('hidden');

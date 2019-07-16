@@ -8,12 +8,11 @@
 
     <title>oSoc19 - Budget Data</title>
 
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
     <?php
-    echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "quiz.css") . "\" />";
-    echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "style.css") . "\" />";
-    echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "upload.css") . "\" />";
+        echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "quiz.css") . "\" />";
+        echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "style.css") . "\" />";
+        echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "upload.css") . "\" />";
     ?>
 
 
@@ -40,30 +39,41 @@
 
 <body class="text-center">
 
-
-
-
-
-
-
     <?php
-    echo isset($error) ? '<div class="alert alert-danger col-12">' . $error . '</div>' : NULL;
-    echo isset($success) ? '<div class="alert alert-success col-12">' . $success . '</div>' : NULL;
-    $attributes = array('name' => 'upload-form','class'=>'form-signin');
-    echo form_open_multipart('upload/do_upload', $attributes);
+        echo isset($error) ? '<div class="alert alert-danger col-12">' . $error . '</div>' : NULL;
+        echo isset($success) ? '<div class="alert alert-success col-12">' . $success . '</div>' : NULL;
+        $attributes = array('name' => 'upload-form', 'class' => 'form-signin');
+        echo form_open_multipart('upload/do_upload', $attributes);
     ?>
 
     <h1 class="h3 mb-3 font-weight-normal">Upload</h1>
-    <input type="file" class="form-control"  name="userfile" size="20" required="required"/>
+    <input type="file" class="form-control" name="userfile" size="20" required="required"/>
 
     <br/>
-<div>
-    <label>Year: </label>
-    <input type="text" class="form-control" name="year" required="required" placeholder="Year"/>
-</div>
+    <div>
+        <label>Year: </label>
+        <input type="text" class="form-control" name="year" required="required" placeholder="Year"/>
+    </div>
+    <div class="languages">
+        <label>Language: </label>
 
+        <?php
 
-<input class="btn btn-dark m-3" type="submit" value="Submit"/>
+            $options = array(
+                'dutch' => 'Nederlands',
+                'french' => 'Français',
+                'english' => 'English',
+            );
+
+            $attributes = array(
+              'class' => 'form-control'
+            );
+
+            echo form_dropdown('languages', $options, 'english', $attributes);
+        ?>
+    </div>
+
+    <input class="btn btn-dark m-3" type="submit" value="Submit"/>
 
     <?php echo form_close(); ?>
 </body>
