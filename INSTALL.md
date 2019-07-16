@@ -13,4 +13,6 @@ a2enmod proxy proxy_fcgi
 a2enconf php7.2-fpm
 
 systemctl restart apache2
+
+reboot
 ```
