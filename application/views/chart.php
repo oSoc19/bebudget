@@ -117,7 +117,6 @@
                     for (var i = 0; i < info.TOT.categories.length; i++) {
                         if (info.TOT.categories[i].name.substring(3) == categoryname) {
                             var category = info.TOT.categories[i];
-                            console.log(category);
                             $('#title').text(category.name.substring(3));
 
 
