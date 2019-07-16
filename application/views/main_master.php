@@ -77,6 +77,7 @@
 
 <?php
 echo "<script src=\"" . base_url("assets/js/" . "scroll.js") . "\"></script>";
+echo "<script src=\"" . base_url("assets/js/" . "quiz-scroll.js") . "\"></script>";
 ?>
 
 </body>

@@ -6,9 +6,8 @@
         public function __construct() {
             parent::__construct();
 
-            //            $url = 'http://84.195.17.11/api/2017.json';
-            //            $this->data = json_decode(file_get_contents($url));
-            $this->data = json_decode(file_get_contents('./uploads/2017.json'));
+            $this->data = json_decode(file_get_contents('./uploads/data.json'));
+            $this->usedCategories = array();
 
             $this->load->helper('form');
         }
@@ -16,13 +15,20 @@
         public function generateQuestions() {
 
             $numberOfQuestions = 5;
+            $questionType = -1;
             $questions = array();
 
             for ($i = 0; $i < $numberOfQuestions; $i++) {
-                $random = rand(0, 3);
+
+                if ($questionType < 3) {
+                    $questionType++;
+                } else {
+                    $questionType = rand(0, 3);
+                }
+
                 $question = new stdClass();
 
-                switch ($random) {
+                switch ($questionType) {
                     case 0:
                         $data = $this->generateThreeCategories();
                         $question->question = 'Where does the government spend most?';
@@ -65,7 +71,6 @@
         private function generateThreeCategories() {
             $categories = array();
             $previousCategories = array();
-            $values = array();
             $data = new stdClass();
 
             for ($i = 0; $i < 3; $i++) {
@@ -80,9 +85,11 @@
                     // Remove the numbers from the name of the category
                     $category->name = $this->removeNumbersFromName($category->name);
 
-                    // Add the random category to the array and save its value
+                    // Add the random category to its array
                     $categories[] = $category;
-                    $values[] = $category->value;
+
+                    // Keep category in global array so it can't be used again
+                    $this->usedCategories[] = $category;
 
                     // Add random category to previousCategory array so it can't be picked again
                     $previousCategories[] = $random;
@@ -94,7 +101,7 @@
 
             // Prepare object and pass to frontend
             $data->categories = $categories;
-            $data->correctAnswer = max($values);
+            $data->correctAnswer = $category->name;
             return $data;
         }
 
@@ -102,10 +109,21 @@
         private function generateCategoryWithAnswers() {
             $data = new stdClass();
             $answers = array();
+            $categoryAvailable = TRUE;
 
-            // Pick a random category
-            $random = rand(0, count((array)$this->data->{'TOT'}->categories) - 1);
-            $category = $this->data->{'TOT'}->categories[$random];
+            // Pick a different category if the current one is already used in a different question
+            while ($categoryAvailable) {
+                // Pick a random category
+                $random = rand(0, count((array)$this->data->{'TOT'}->categories) - 1);
+                $category = $this->data->{'TOT'}->categories[$random];
+
+                // Check if the category is available
+                if (!in_array($category, $this->usedCategories)) {
+                    $this->usedCategories[] = $category;
+                    $categoryAvailable = FALSE;
+                }
+            }
+
 
             // Remove the numbers from the name of the category
             $category->name = $this->removeNumbersFromName($category->name);
@@ -120,9 +138,9 @@
             $answer3 = $category->value;
 
             // Turn the million number into a nice text e.g.: 7485 => 7.49 Billion
-            $answer1 = $this->prettifyNumber((string)$answer1 . "000000");
-            $answer2 = $this->prettifyNumber((string)$answer2 . "000000");
-            $answer3 = $this->prettifyNumber((string)$answer3 . "000000");
+            $answer1 = '€' . $this->prettifyNumber((string)$answer1 . "000000");
+            $answer2 = '€' . $this->prettifyNumber((string)$answer2 . "000000");
+            $answer3 = '€' . $this->prettifyNumber((string)$answer3 . "000000");
 
             // Add the answers to their array
             $answers[] = $answer1;
@@ -143,11 +161,20 @@
         private function generateCategoryWithAnswersInPercentages() {
             $data = new stdClass();
             $answers = array();
+            $categoryAvailable = TRUE;
 
-            // Pick a random category
-            $random = rand(0, count((array)$this->data->{'TOT'}->categories) - 1);
-            $category = $this->data->{'TOT'}->categories[$random];
+            // Pick a different category if the current one is already used in a different question
+            while ($categoryAvailable) {
+                // Pick a random category
+                $random = rand(0, count((array)$this->data->{'TOT'}->categories) - 1);
+                $category = $this->data->{'TOT'}->categories[$random];
 
+                // Check if the category is available
+                if (!in_array($category, $this->usedCategories)) {
+                    $this->usedCategories[] = $category;
+                    $categoryAvailable = FALSE;
+                }
+            }
             // Remove the numbers from the name of the category
             $category->name = $this->removeNumbersFromName($category->name);
 
@@ -164,19 +191,14 @@
             $answer3 = $category->value;
 
             // Convert millions to percentages
-            $percentage1 = round(($answer1 / $total) * 100, 2);
-            $percentage2 = round(($answer2 / $total) * 100, 2);
-            $percentage3 = round(($answer3 / $total) * 100, 2);
-
-            // Make a sentence with the percentages and put in in perspective with euros
-            $answer1 = $percentage1 . "% or €" . round($percentage1 * 10) . ' from €1000';
-            $answer2 = $percentage2 . "% or €" . round($percentage2 * 10) . ' from €1000';
-            $answer3 = $percentage3 . "% or €" . round($percentage3 * 10) . ' from €1000';
+            $percentage1 = round(($answer1 / $total) * 100, 2) . '%';
+            $percentage2 = round(($answer2 / $total) * 100, 2) . '%';
+            $percentage3 = round(($answer3 / $total) * 100, 2) . '%';
 
             // Add the answers to their array
-            $answers[] = $answer1;
-            $answers[] = $answer2;
-            $answers[] = $answer3;
+            $answers[] = $percentage1;
+            $answers[] = $percentage2;
+            $answers[] = $percentage3;
 
             // Shuffle the answers
             shuffle($answers);
@@ -184,7 +206,7 @@
             // Prepare object and pass to frontend
             $data->category = $category->name;
             $data->answers = $answers;
-            $data->correctAnswer = $answer3;
+            $data->correctAnswer = $percentage3;
             return $data;
 
         }
@@ -204,6 +226,14 @@
                 if ($previousCategory !== $random) {
                     // Pick a random category
                     $category = $this->data->{'TOT'}->categories[$random];
+
+                    // Check if the category is available
+                    if (!in_array($category, $this->usedCategories)) {
+                        $this->usedCategories[] = $category;
+                    } else {
+                        $i--;
+                        continue;
+                    }
 
                     // Remove the numbers from the name of the category
                     $category->name = $this->removeNumbersFromName($category->name);
@@ -252,11 +282,14 @@
         }
 
         private function prettifyNumber($number) {
+            // Don't include commas or dots in the number
             $number = str_replace(",", "", $number);
             $number = str_replace(".", "", $number);
 
+            // Check if the number is an actual number
             if (!is_numeric($number)) return false;
 
+            // Put the correct value behind the number
             if ($number > 1000000000000) return round(($number / 1000000000000), 2) . ' trillion';
             elseif ($number > 1000000000) return round(($number / 1000000000), 2) . ' billion';
             elseif ($number > 1000000) return round(($number / 1000000), 2) . ' million';
