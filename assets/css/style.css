@@ -89,7 +89,7 @@ a {
 #nav a,
 #lang a,
 #buttons .btn,
-h1{
+h1 {
     color: #0A0839;
 }
 
@@ -97,7 +97,7 @@ h1{
 #lang a,
 #buttons .btn,
 p,
-body{
+body {
     font-family: 'Nunito', sans-serif !important;
 
 }
@@ -112,21 +112,39 @@ h1, .h1 {
     background-color: #0A0839;
 }
 
+#donutchart {
+    min-height: 900px;
+    width: 100%;
+}
+
+#subcatChart div, #subcatChart svg {
+    max-width: 100% !important;
+}
+
+#subcatChart svg g:nth-of-type(2) rect {
+    margin-top: 50%;
+}
 
 footer a {
     color: #fff;
     text-decoration: underline;
 }
-#donutchart{
-    min-height: 900px;
-    width: 100%;
+
+footer, .footer-classic {
+    background-color: #0A0839 !important;
 }
 
-#subcatChart div, #subcatChart svg{
-    max-width: 100% !important;
+@media screen and (max-width: 600px) {
+    footer img {
+        width: 15%
+    }
 }
 
-#subcatChart svg g:nth-of-type(2) rect{
-    margin-top: 50%;
+@media screen and (min-width: 600px) {
+    footer img {
+        width: 30%;
+    }
+    footer .col-md-8{
+        align-items: flex-end;
+    }
 }
-
