@@ -33,7 +33,7 @@
                         echo "<img src=\"" . base_url("assets/images/" . "nbb.svg") . "\" />";
                         ?>
                     </a>
-                    <p> Source: <a href="https://stat.nbb.be/">NBB</a></p>
+                    <p> Source: <a href="https://stat.nbb.be/">NBB.Stat</a> - National Bank of Belgium</p>
                 </div>
             </div>
         </div>

@@ -70,6 +70,7 @@
         // Helper function to generate 3 random categories
         private function generateThreeCategories() {
             $categories = array();
+            $previousRandomNumbers = array();
             $previousCategories = array();
             $data = new stdClass();
 
@@ -78,8 +79,8 @@
                 $random = rand(0, count((array)$this->data->{'TOT'}->categories) - 1);
 
                 // Check if the random number is already in the array so it can't pick the same category twice
-                if (!in_array($random, $previousCategories, TRUE)) {
-                    // Pick a random category
+                if (!in_array($random, $previousRandomNumbers, TRUE)) {
+                    // Pick a random category and save its value
                     $category = $this->data->{'TOT'}->categories[$random];
 
                     // Remove the numbers from the name of the category
@@ -92,16 +93,26 @@
                     $this->usedCategories[] = $category;
 
                     // Add random category to previousCategory array so it can't be picked again
-                    $previousCategories[] = $random;
+                    $previousRandomNumbers[] = $random;
+                    $previousCategories[] = $category;
                 } else {
                     // Pick a new random number if it was already in the array
                     $i--;
                 }
             }
 
+            // Get the name of the category that has the highest value
+            $max_value = 0;
+            foreach ($previousCategories as $category) {
+                if ($category->value > $max_value) {
+                    $name = $category->name;
+                    $max_value = $category->value;
+                }
+            }
+
             // Prepare object and pass to frontend
             $data->categories = $categories;
-            $data->correctAnswer = $category->name;
+            $data->correctAnswer = $name;
             return $data;
         }
 
@@ -129,8 +140,8 @@
             $category->name = $this->removeNumbersFromName($category->name);
 
             // Get the minimum and maximum values to get a range of 70% of the value
-            $minimum = $category->value - (0.7 * $category->value);
-            $maximum = $category->value + (0.7 * $category->value);
+            $minimum = round($category->value - (0.7 * $category->value), 1);
+            $maximum = round($category->value + (0.7 * $category->value), 1);
 
             // Set two random answers and the correct answer
             $answer1 = rand($minimum, $maximum);
@@ -138,9 +149,9 @@
             $answer3 = $category->value;
 
             // Turn the million number into a nice text e.g.: 7485 => 7.49 Billion
-            $answer1 = '€' . $this->prettifyNumber((string)$answer1 . "000000");
-            $answer2 = '€' . $this->prettifyNumber((string)$answer2 . "000000");
-            $answer3 = '€' . $this->prettifyNumber((string)$answer3 . "000000");
+            $answer1 = '€' . $this->prettifyNumber($answer1);
+            $answer2 = '€' . $this->prettifyNumber($answer2);
+            $answer3 = '€' . $this->prettifyNumber($answer3);
 
             // Add the answers to their array
             $answers[] = $answer1;
@@ -282,9 +293,14 @@
         }
 
         private function prettifyNumber($number) {
-            // Don't include commas or dots in the number
-            $number = str_replace(",", "", $number);
-            $number = str_replace(".", "", $number);
+            if (strpos($number, '.') || strpos($number, ',')) {
+                // Don't include commas or dots in the number
+                $number = str_replace(',', '', $number);
+                $number = str_replace('.', '', $number);
+                $number .= "00000";
+            } else {
+                $number .= "000000";
+            }
 
             // Check if the number is an actual number
             if (!is_numeric($number)) return false;
