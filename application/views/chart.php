@@ -64,6 +64,7 @@
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Category');
             data.addColumn('number', 'Value');
+            data.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
             data.addRows(info.TOT.categories.length);
             var count = 0;
             for (var i = 0; i < info.TOT.categories.length; i++) {
@@ -71,6 +72,8 @@
                 data.setCell(i, count, info.TOT.categories[i].name.substring(3));
                 count++;
                 data.setCell(i, count, info.TOT.categories[i].value);
+                count++;
+                data.setCell(i, count, '€ ' + info.TOT.categories[i].value + ' million </br>' +info.TOT.categories[i].name.substring(3) );
                 count = 0;
             }
             data.sort({column: 1, desc: true});
@@ -83,7 +86,7 @@
                     pieHole: 0.65,
                     colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                     enableInteractivity: true,
-                    tooltip: {textStyle: {color: 'black'}, showColorCode: true},
+                    tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml:true},
                     width: '100%',
                 }
             ;
@@ -97,7 +100,7 @@
                 pieHole: 0.65,
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
-                tooltip: {textStyle: {color: 'black'}, showColorCode: true},
+                tooltip: {textStyle: {color: 'black'}, showColorCode: true,isHtml:true},
                 width: '100%',
                 legend: 'bottom'
             };
@@ -160,6 +163,7 @@
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Category');
             data.addColumn('number', 'Value');
+            data.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
             data.addRows(category.subcategories.length);
             var count = 0;
             for (var i = 0; i < category.subcategories.length; i++) {
@@ -167,6 +171,8 @@
                 data.setCell(i, count, category.subcategories[i].name.substring(5));
                 count++;
                 data.setCell(i, count, category.subcategories[i].value);
+                count++;
+                data.setCell(i, count, '€ ' + info.TOT.categories[i].value + ' million </br>' +info.TOT.categories[i].name.substring(3) );
                 count = 0;
             }
             data.sort({column: 1, desc: true});
@@ -179,7 +185,7 @@
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
                 pieSliceText: 'none',
-                tooltip: {textStyle: {color: 'black'}, showColorCode: true},
+                tooltip: {textStyle: {color: 'black'}, showColorCode: true,isHtml:true},
                 width: '100%',
                 height: 400
             };
@@ -193,7 +199,7 @@
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
                 pieSliceText: 'none',
-                tooltip: {textStyle: {color: 'black'}, showColorCode: true},
+                tooltip: {textStyle: {color: 'black'}, showColorCode: true,isHtml:true},
                 width: '100%',
                 legend: 'right'
             };
