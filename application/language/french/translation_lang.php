@@ -11,6 +11,7 @@ $lang["quiz_question3"] = "Quel est le pourcentage des dépenses publiques va à
 $lang["quiz_question4_first"] = "Plus est consacré à la ";
 $lang["quiz_question4_second"] = " que ";
 $lang["quiz_score"] = "Votre score est: ";
+$lang["quiz_file"] = "data_french.json";
 $lang["quiz_btn_true"] = "Vrai";
 $lang["quiz_btn_false"] = "Faux";
 
