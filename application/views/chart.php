@@ -172,7 +172,7 @@
                 count++;
                 data.setCell(i, count, category.subcategories[i].value);
                 count++;
-                data.setCell(i, count, '€ ' + info.TOT.categories[i].value + ' million </br>' +info.TOT.categories[i].name.substring(3) );
+                data.setCell(i, count, '€ ' + category.subcategories[i].value + ' million </br>' + category.subcategories[i].name.substring(5) );
                 count = 0;
             }
             data.sort({column: 1, desc: true});
