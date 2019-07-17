@@ -26,6 +26,7 @@
         public function do_upload() {
             $data['title'] = 'Upload CSV file';
             $year = $this->input->post('year');
+            $language = $this->input->post('languages');
 
             $config['upload_path'] = './uploads/';
             $config['allowed_types'] = 'csv';
@@ -38,20 +39,20 @@
                 $data['error'] = $this->upload->display_errors();
             } else {
                 $data['success'] = 'Upload successful';
-                $this->filtercsv($year);
+                $this->filtercsv($year, $language);
             }
 
             $this->load->view('upload_form', $data);
         }
 
-        private function filtercsv($year) {
+        private function filtercsv($year, $language) {
             $row = 1;
             $data = array();
             $previous_id = NULL;
             $category = new stdClass();
             $total = new stdClass();
             $dataTotal = array();
-            $count=0;
+            $count = 0;
 
             if (($handle = fopen('./uploads/' . $year . '.csv', 'rb')) !== FALSE) {
                 while (($line = fgetcsv($handle, 10000, ',')) !== FALSE) {
@@ -67,7 +68,7 @@
 
                             $data[$line[0]] = $total;
                             $category = new stdClass();
-                            $count=0;
+                            $count = 0;
                         }
 
                         if ($line[0] !== 'TOT' && strlen($line[0]) === 3) {
@@ -93,7 +94,7 @@
 
                                 $dataTotal[$category->id] = $category;
 
-                                if (empty((array)$category) && empty($data) === false && $count==1) {
+                                if (empty((array)$category) && empty($data) === false && $count == 1) {
                                     $total->categories[] = $category;
                                     $count++;
                                 } else {
@@ -104,7 +105,7 @@
                             }
 
                             $category = new stdClass();
-                            $count=0;
+                            $count = 0;
                         }
 
                         if (strlen($line[0]) === 3) {
@@ -117,11 +118,9 @@
                 fclose($handle);
             }
 
-            file_put_contents('./uploads/' . $year . '.json', json_encode($data));
-            file_put_contents('./uploads/data.json', json_encode($data));
-
-
             /*$this->config->config['date'] = date("Y/m/d");*/
+            file_put_contents("./uploads/$year" . "_$language.json", json_encode($data));
+            file_put_contents("./uploads/data_$language.json", json_encode($data));
         }
 
         public function checkPassword() {
@@ -131,7 +130,7 @@
                 redirect('/home');
             }
 
-            $this->config->set_item('upload_access',TRUE);
+            $this->config->set_item('upload_access', TRUE);
             $this->index();
         }
     }

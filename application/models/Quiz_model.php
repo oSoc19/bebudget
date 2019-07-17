@@ -6,7 +6,7 @@
         public function __construct() {
             parent::__construct();
 
-            $this->data = json_decode(file_get_contents('./uploads/data.json'));
+            $this->data = json_decode(file_get_contents('./uploads/' .$this->lang->line("chart_file")));
             $this->usedCategories = array();
 
             $this->load->helper('form');
@@ -31,7 +31,7 @@
                 switch ($questionType) {
                     case 0:
                         $data = $this->generateThreeCategories();
-                        $question->question = 'Where does the government spend most?';
+                        $question->question = $this->lang->line("quiz_question1");
                         $question->answers = $data->categories;
                         $question->correctAnswer = $data->correctAnswer;
 
@@ -39,7 +39,7 @@
                         break;
                     case 1:
                         $data = $this->generateCategoryWithAnswers();
-                        $question->question = 'How much money is spent on ' . $data->category . '?';
+                        $question->question = $this->lang->line("quiz_question2") . $data->category . '?';
                         $question->answers = $data->answers;
                         $question->correctAnswer = $data->correctAnswer;
 
@@ -47,7 +47,7 @@
                         break;
                     case 2:
                         $data = $this->generateCategoryWithAnswersInPercentages();
-                        $question->question = 'What percentage of government expenditure goes to ' . $data->category . '?';
+                        $question->question = $this->lang->line("quiz_question3") . $data->category . '?';
                         $question->answers = $data->answers;
                         $question->correctAnswer = $data->correctAnswer;
 
@@ -55,7 +55,7 @@
                         break;
                     case 3:
                         $data = $this->generateTwoCategories();
-                        $question->question = 'More is spent on ' . $data->firstCategory . ' than ' . $data->secondCategory . '.';
+                        $question->question = $this->lang->line("quiz_question4_first") . $data->firstCategory . $this->lang->line("quiz_question4_second") . $data->secondCategory . '.';
                         $question->answers = $data->answers;
                         $question->correctAnswer = $data->correctAnswer;
 
@@ -80,7 +80,7 @@
 
                 // Check if the random number is already in the array so it can't pick the same category twice
                 if (!in_array($random, $previousRandomNumbers, TRUE)) {
-                    // Pick a random category and save its value
+                    // Pick a random category
                     $category = $this->data->{'TOT'}->categories[$random];
 
                     // Remove the numbers from the name of the category
@@ -272,7 +272,7 @@
             // Prepare object and pass to frontend
             $data->firstCategory = $firstCategory->name;
             $data->secondCategory = $secondCategory->name;
-            $data->answers = array('True', 'False');
+            $data->answers = array($this->lang->line('quiz_btn_true'), $this->lang->line('quiz_btn_false'));
             $data->correctAnswer = $correctAnswer;
             return $data;
         }

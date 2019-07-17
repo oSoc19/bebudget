@@ -3,9 +3,9 @@
         <div class="row row-30">
             <div class="col-md-4 col-sm-12">
                 <div class="pr-xl-4">
-                    <p>The data used in this website is from the year 2017.</p>
-                    <p>Last updated on: <?php /*echo $this->config->config['date']; */?></p>
-                    <p><a href="#" data-toggle="modal" data-target="#upload-form">Upload new data</a></p>
+                    <p><?php echo $this->lang->line('footer_part1'); ?></p>
+                    <p><?php echo $this->lang->line('footer_part2'); ?></p>
+                    <p><?php echo $this->lang->line('footer_part3'); ?></p>
                 </div>
             </div>
 
