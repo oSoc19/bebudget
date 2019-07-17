@@ -13,6 +13,8 @@ $lang["quiz_question4_first"] = "Er wordt meer uitgegeven aan ";
 $lang["quiz_question4_second"] = " dan aan ";
 $lang["quiz_score"] = "Je score is: ";
 $lang["quiz_file"] = "data_dutch.json";
+$lang["quiz_btn_true"] = "Waar";
+$lang["quiz_btn_false"] = "Onwaar";
 
 // Chart
 $lang["chart_file"] = "data_dutch.json";

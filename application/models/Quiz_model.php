@@ -6,7 +6,6 @@
         public function __construct() {
             parent::__construct();
 
-            /*$data_language = $this->config->config['language'];*/
             $this->data = json_decode(file_get_contents('./uploads/' .$this->lang->line("chart_file")));
             $this->usedCategories = array();
 
@@ -14,8 +13,6 @@
         }
 
         public function generateQuestions() {
-//            $data_language = $this->config->config['language'];
-//            $this->data = json_decode(file_get_contents("./uploads/data_$data_language.json"));
 
             $numberOfQuestions = 5;
             $questionType = -1;
@@ -275,7 +272,7 @@
             // Prepare object and pass to frontend
             $data->firstCategory = $firstCategory->name;
             $data->secondCategory = $secondCategory->name;
-            $data->answers = array('True', 'False');
+            $data->answers = array($this->lang->line('quiz_btn_true'), $this->lang->line('quiz_btn_false'));
             $data->correctAnswer = $correctAnswer;
             return $data;
         }
