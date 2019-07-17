@@ -11,12 +11,12 @@ $lang["quiz_question3"] = "Quel est le pourcentage des dépenses publiques va à
 $lang["quiz_question4_first"] = "Plus est consacré à la ";
 $lang["quiz_question4_second"] = " que ";
 $lang["quiz_score"] = "Votre score est: ";
-$lang["quiz_file"] = "data_french.json";
+$lang["quiz_btn_true"] = "Vrai";
+$lang["quiz_btn_false"] = "Faux";
 
 // Chart
 $lang["chart_file"] = "data_french.json";
 $lang["chart_title"] = "Dépenses par catégorie, en pourcentage du total des dépenses publiques";
-
 
 // Footer
 $lang["footer_part1"] = " Les données utilisées dans ce site Web provient de l’année 2017.";

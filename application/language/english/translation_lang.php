@@ -13,11 +13,12 @@ $lang["quiz_question4_first"] = "More is spent on ";
 $lang["quiz_question4_second"] = " than ";
 $lang["quiz_score"] = "Your score is: ";
 $lang["quiz_file"] = "data_english.json";
+$lang["quiz_btn_true"] = "True";
+$lang["quiz_btn_false"] = "False";
 
 // Chart
 $lang["chart_file"] = "data_english.json";
 $lang["chart_title"] = "Government spending by category as a percentage of the total expenditure";
-
 
 // Footer
 $lang["footer_part1"] = "The data used in this website is from the year 2017.";
