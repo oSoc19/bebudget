@@ -12,3 +12,7 @@ $lang["quiz_question3"] = "Hoeveel procent van de uitgaves van de overheid gaat 
 $lang["quiz_question4_first"] = "Er wordt meer uitgegeven aan ";
 $lang["quiz_question4_second"] = " dan aan ";
 $lang["quiz_score"] = "Je score is: ";
+
+// Chart
+$lang["chart_file"] = "data_dutch.json";
+$lang["chart_title"] = " Overheidsuitgaven per categorie als een percentage van de totale uitgaven";

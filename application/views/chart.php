@@ -29,7 +29,7 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 
-    $.getJSON("uploads/data.json", function(info) {
+    $.getJSON("uploads/<?php echo $this->lang->line('chart_file'); ?>", function(info) {
         
         google.charts.load("current", {packages: ["corechart"]});
         google.charts.setOnLoadCallback(drawPieChartCategories);
@@ -79,7 +79,7 @@
 
         function setOptionsForPieChart() {
             var options = {
-                    title: 'Budget data per category',
+                    title: '<?php echo $this->lang->line('chart_title'); ?>',
                     pieHole: 0.65,
                     colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                     enableInteractivity: true,
@@ -93,7 +93,7 @@
 
         function setOptionsForSmallPieChart() {
             var options = {
-                title: 'Budget data per category',
+                title: '<?php echo $this->lang->line('chart_title'); ?>',
                 pieHole: 0.65,
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
@@ -176,7 +176,7 @@
 
         function setOptionsForSubCategoriesPieChart() {
             var options = {
-                title: 'Budget data per category',
+                title: '<?php echo $this->lang->line('chart_title'); ?>',
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
                 pieSliceText: 'none',
@@ -190,7 +190,7 @@
 
         function setOptionsForSmallSubCategoriesPieChart() {
             var options = {
-                title: 'Budget data per category',
+                title: '<?php echo $this->lang->line('chart_title'); ?>',
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
                 pieSliceText: 'none',
@@ -212,4 +212,8 @@
         });
 
     });
+
+
+
+
 </script>

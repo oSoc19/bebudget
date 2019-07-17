@@ -12,3 +12,7 @@ $lang["quiz_question3"] = "What percentage of government expenditure goes to ";
 $lang["quiz_question4_first"] = "More is spent on ";
 $lang["quiz_question4_second"] = " than ";
 $lang["quiz_score"] = "Your score is: ";
+
+// Chart
+$lang["chart_file"] = "data_english.json";
+$lang["chart_title"] = "Government spending by category as a percentage of the total expenditure";
