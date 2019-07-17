@@ -6,10 +6,10 @@ $lang["landingpage_btn_chart"] = "Non, ...";
 // Quiz
 $lang["quiz_title"] = "Testez-vous avec ces <span class='highlight'>5 questions</span>!";
 $lang["quiz_question1"] = " Où le gouvernement dépense-t-il plus ?";
-$lang["quiz_question2"] = "Combien d’argent est consacré à la ";
-$lang["quiz_question3"] = "Quel est le pourcentage des dépenses publiques va à la ";
-$lang["quiz_question4_first"] = "Plus est consacré à la ";
-$lang["quiz_question4_second"] = " que ";
+$lang["quiz_question2"] = "Combien est-il dépensé pour ";
+$lang["quiz_question3"] = "Quel pourcentage des dépenses publiques va à ";
+$lang["quiz_question4_first"] = "On en dépense plus pour ";
+$lang["quiz_question4_second"] = " que pour ";
 $lang["quiz_score"] = "Votre score est: ";
 $lang["quiz_file"] = "data_french.json";
 $lang["quiz_btn_true"] = "Vrai";
