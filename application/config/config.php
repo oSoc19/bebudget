@@ -524,3 +524,4 @@ $config['proxy_ips'] = '';
 // Change password on the server
 $config['password'] = 'test';
 $config['upload_access'] = FALSE;
+$config['date'] = '';

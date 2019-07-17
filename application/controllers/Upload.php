@@ -118,6 +118,7 @@
                 fclose($handle);
             }
 
+            /*$this->config->config['date'] = date("Y/m/d");*/
             file_put_contents("./uploads/$year" . "_$language.json", json_encode($data));
             file_put_contents("./uploads/data_$language.json", json_encode($data));
         }

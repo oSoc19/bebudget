@@ -7,12 +7,8 @@
         </div>
         <div class="container" id="nav">
             <?php echo anchor("", "Home"); ?>
-            <?php /*echo anchor("#graph","Info"); */ ?>
-            <a href="#graph">Info</a>
-            <?php /*echo anchor("#quiz","Quiz"); */ ?>
-            <a href="#quiz">Quiz</a>
-            <?php /*echo anchor("","Contact"); */ ?>
-            <a href="#" data-toggle="modal" data-target="#upload-form"></a>
+            <a href="#quiz" class="js-scroll-trigger">Quiz</a>
+            <a href="#graph" class="js-scroll-trigger">Info</a>
         </div>
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center">
