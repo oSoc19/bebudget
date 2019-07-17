@@ -17,3 +17,9 @@ $lang["quiz_file"] = "data_english.json";
 // Chart
 $lang["chart_file"] = "data_english.json";
 $lang["chart_title"] = "Government spending by category as a percentage of the total expenditure";
+
+
+// Footer
+$lang["footer_part1"] = "The data used in this website is from the year 2017.";
+$lang["footer_part2"] = "Last updated on: ";
+$lang["footer_part3"] = '<a href="#" data-toggle="modal" data-target="#upload-form">Upload new data</a>';
