@@ -28,5 +28,5 @@ cd /var/www
 git clone https://github.com/oSoc19/bebudget.git
 
 cd /var/www/bebudget
-php composer.phar install
+composer install
 ```
