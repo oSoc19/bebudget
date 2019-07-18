@@ -15,7 +15,9 @@ $lang["quiz_score"] = "Je score is: ";
 $lang["quiz_file"] = "data_dutch.json";
 $lang["quiz_btn_true"] = "Waar";
 $lang["quiz_btn_false"] = "Onwaar";
-$lang["quiz_number"] = " miljard";
+$lang["quiz_number_million"] = " miljoen";
+$lang["quiz_number_billion"] = " miljard";
+$lang["quiz_number_trillion"] = " biljoen";
 
 // Chart
 $lang["chart_file"] = "data_dutch.json";
