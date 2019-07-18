@@ -266,7 +266,7 @@
 
             // Check which value is bigger
             if ($firstCategory->value > $secondCategory->value) {
-                $correctAnswer = 'True';
+                $correctAnswer = $this->lang->line('quiz_btn_true');
             }
 
             // Prepare object and pass to frontend
