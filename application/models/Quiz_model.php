@@ -144,7 +144,10 @@
             $maximum = round($category->value + (0.7 * $category->value), 1);
 
             // Set two random answers and the correct answer
-            $answer1 = rand($minimum, $maximum);
+
+            do {
+                $answer1 = rand($minimum, $maximum);
+            } while ($answer1 < ($category->value - (0.2 * $category->value)) && $answer1 > ($category->value + (0.2 * $category->value)) );
             $answer2 = rand($minimum, $maximum);
             $answer3 = $category->value;
 
