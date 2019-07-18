@@ -1,5 +1,8 @@
+<div style="width: 70%; margin: auto;">
+    <h3><?php echo $this->lang->line('chart_title'); ?></h3>
+    <small><?php echo $this->lang->line('chart_subtitle'); ?></small>
+</div>
 <div id="donutchart"></div>
-
 
 <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
@@ -15,7 +18,6 @@
                 <section id="content">
                     <div id="subcatChart" style="height:50%;"></div>
                     <p></p>
-                    <!--<div id="linechart" style="width: 900px; height: 500px"></div>-->
                 </section>
             </div>
             <div class="modal-footer">
@@ -36,14 +38,18 @@
         function drawPieChartCategories() {
 
             dataCat = setDataForPieChartCategories();
-            options = setOptionsForPieChart();
 
+            var width = $(window).width();
+            if (width <= 600) {
+                options = setOptionsForSmallPieChart();
+            } else {
+                options = setOptionsForPieChart();
+            }
 
             var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
             chart.draw(dataCat, options);
 
             showModalWithSubCategories(chart);
-
         }
 
         function drawSmallPieChartCategories() {
@@ -63,7 +69,7 @@
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Category');
             data.addColumn('number', 'Value');
-            data.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
+            /*data.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});*/
             data.addRows(info.TOT.categories.length);
             var count = 0;
             for (var i = 0; i < info.TOT.categories.length; i++) {
@@ -71,8 +77,8 @@
                 data.setCell(i, count, info.TOT.categories[i].name.substring(3));
                 count++;
                 data.setCell(i, count, info.TOT.categories[i].value);
-                count++;
-                data.setCell(i, count, '€ ' + info.TOT.categories[i].value + ' million </br>' + info.TOT.categories[i].name.substring(3));
+/*                count++;
+                data.setCell(i, count, '€ ' + info.TOT.categories[i].value + ' million </br>' + info.TOT.categories[i].name.substring(3));*/
                 count = 0;
             }
             data.sort({column: 1, desc: true});
@@ -81,12 +87,11 @@
 
         function setOptionsForPieChart() {
             var options = {
-                    title: '<?php echo $this->lang->line('chart_title'); ?>',
-                    pieHole: 0.65,
+                    pieHole: 0.6,
                     colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                     enableInteractivity: true,
                     tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml: true},
-                    width: '100%',
+                width:'100%'
                 }
             ;
 
@@ -95,17 +100,24 @@
 
         function setOptionsForSmallPieChart() {
             var options = {
-                title: '<?php echo $this->lang->line('chart_title'); ?>',
-                pieHole: 0.65,
+                pieHole: 0.5,
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
                 tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml: true},
                 width: '100%',
+                height: 350,
                 legend: 'bottom'
             };
 
             return options;
         }
+
+
+
+
+
+
+
 
         function showModalWithSubCategories(chart) {
             google.visualization.events.addListener(chart, 'click', clickHandler);
@@ -124,9 +136,9 @@
 
                             var width = $(window).width();
                             if (width <= 600) {
-                                drawSmallPieChartSubCategories(category)
+                                drawSmallBarChartSubCategories(category)
                             } else {
-                                drawPieChartSubCategories(category);
+                                drawBarChartSubCategories(category);
 
                             }
                             $('#myModal').modal('show');
@@ -139,27 +151,27 @@
         }
 
 
-        function drawPieChartSubCategories(category) {
+        function drawBarChartSubCategories(category) {
 
-            data = setDataForPieChartSubcategories(category);
-            options = setOptionsForSubCategoriesPieChart();
-
-
-            var chart = new google.visualization.BarChart(document.getElementById('subcatChart'));
-            chart.draw(data, options);
-        }
-
-        function drawSmallPieChartSubCategories(category) {
-
-            data = setDataForPieChartSubcategories(category);
-            options = setOptionsForSmallSubCategoriesPieChart();
+            data = setDataForBarChartSubcategories(category);
+            options = setOptionsForSubCategoriesBarChart();
 
 
             var chart = new google.visualization.BarChart(document.getElementById('subcatChart'));
             chart.draw(data, options);
         }
 
-        function setDataForPieChartSubcategories(category) {
+        function drawSmallBarChartSubCategories(category) {
+
+            data = setDataForBarChartSubcategories(category);
+            options = setOptionsForSmallSubCategoriesBarChart();
+
+
+            var chart = new google.visualization.BarChart(document.getElementById('subcatChart'));
+            chart.draw(data, options);
+        }
+
+        function setDataForBarChartSubcategories(category) {
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Category');
             data.addColumn('number', 'Value');
@@ -179,9 +191,8 @@
             return data;
         }
 
-        function setOptionsForSubCategoriesPieChart() {
+        function setOptionsForSubCategoriesBarChart() {
             var options = {
-                title: '<?php echo $this->lang->line('chart_title'); ?>',
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
                 tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml: true},
@@ -203,20 +214,8 @@
             return options;
         }
 
-        function setOptionsForSmallSubCategoriesPieChart() {
-            /* var options = {
-                 title: '<?php /*echo $this->lang->line('chart_title');*/ ?>',
-                colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
-                enableInteractivity: true,
-                pieSliceText: 'none',
-                tooltip: {textStyle: {color: 'black'}, showColorCode: true,isHtml:true},
-                width: '100%',
-                legend: 'right'
-            };
-
-            return options;*/
+        function setOptionsForSmallSubCategoriesBarChart() {
             var options = {
-                title: '<?php echo $this->lang->line('chart_title'); ?>',
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
                 tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml: true},

@@ -21,7 +21,8 @@ $lang["quiz_number_trillion"] = " trillion";
 
 // Chart
 $lang["chart_file"] = "data_english.json";
-$lang["chart_title"] = "Government spending by category as a percentage of the total expenditure";
+$lang["chart_title"] = 'Government spending by category as a percentage of the total expenditure';
+$lang["chart_subtitle"] = 'The data is all in millions';
 
 // Footer
 $lang["footer_part1"] = "The data used in this website is from the year 2017.";
