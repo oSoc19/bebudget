@@ -307,7 +307,7 @@
 
             // Put the correct value behind the number
             if ($number > 1000000000000) return round(($number / 1000000000000), 2) . ' trillion';
-            elseif ($number > 1000000000) return round(($number / 1000000000), 2) . ' billion';
+            elseif ($number > 1000000000) return round(($number / 1000000000), 2) . $this->lang->line("quiz_number");
             elseif ($number > 1000000) return round(($number / 1000000), 2) . ' million';
             elseif ($number > 1000) return $number;
 
