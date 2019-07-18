@@ -9,13 +9,15 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="title"></h5>
+                <h4 id="title"></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <section id="content">
+                    <h4></h4>
+                    <small><?php echo $this->lang->line('chart_subtitle'); ?></small>
                     <div id="subcatChart" style="height:50%;"></div>
                     <p></p>
                 </section>
@@ -127,6 +129,7 @@
                         if (info.TOT.categories[i].name.substring(3) == categoryname) {
                             var category = info.TOT.categories[i];
                             $('#title').text(category.name.substring(3));
+                            $('#content h4').text('Government spending per sub-category of ' +  category.name.substring(3));
 
 
                             var width = $(window).width();
@@ -179,7 +182,7 @@
                 count++;
                 data.setCell(i, count, Math.round(category.subcategories[i].value));
                 count++;
-                data.setCell(i, count, '€ ' + Math.round(category.subcategories[i].value) + ' M ' + category.subcategories[i].name.substring(5));
+                data.setCell(i, count, '€ ' + Math.round(category.subcategories[i].value) + ' ' + category.subcategories[i].name.substring(5));
                 count = 0;
             }
             data.sort({column: 1, desc: true});
@@ -201,7 +204,7 @@
                         }
                     }
                 },
-                hAxis: {format: 'decimal', title: 'in millions'},
+                hAxis: {format: 'decimal'},
                 vAxis: {textPosition: 'out'},
                 legend: 'none'
             };
