@@ -8,14 +8,21 @@ sudo apt dist-upgrade
 
 sudo apt install apache2
 sudo apt install php-fpm
+sudo apt install mysql-server
 
-a2enmod proxy proxy_fcgi
-a2enconf php7.2-fpm php7.2-mysql php7.2-xml php7.2-zip
+sudo a2enmod proxy proxy_fcgi
+sudo a2enconf php7.2-fpm php7.2-mysql php7.2-xml php7.2-zip
 
-systemctl restart apache2
+sudo systemctl restart apache2
 
-reboot
+sudo reboot
 ```
+
+### MySQL
+
+1. Create `bebudget` user
+2. Create `budgetdata` database
+3. Give access to `bebudget` user on `budgetdata` database
 
 ### Install composer
 
