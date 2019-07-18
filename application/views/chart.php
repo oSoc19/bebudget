@@ -28,9 +28,8 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
+    $.getJSON("uploads/<?php echo $this->lang->line('chart_file'); ?>", function (info) {
 
-    $.getJSON("uploads/<?php echo $this->lang->line('chart_file'); ?>", function(info) {
-        
         google.charts.load("current", {packages: ["corechart"]});
         google.charts.setOnLoadCallback(drawPieChartCategories);
 
@@ -73,7 +72,7 @@
                 count++;
                 data.setCell(i, count, info.TOT.categories[i].value);
                 count++;
-                data.setCell(i, count, '€ ' + info.TOT.categories[i].value + ' million </br>' +info.TOT.categories[i].name.substring(3) );
+                data.setCell(i, count, '€ ' + info.TOT.categories[i].value + ' million </br>' + info.TOT.categories[i].name.substring(3));
                 count = 0;
             }
             data.sort({column: 1, desc: true});
@@ -86,7 +85,7 @@
                     pieHole: 0.65,
                     colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                     enableInteractivity: true,
-                    tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml:true},
+                    tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml: true},
                     width: '100%',
                 }
             ;
@@ -100,7 +99,7 @@
                 pieHole: 0.65,
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
-                tooltip: {textStyle: {color: 'black'}, showColorCode: true,isHtml:true},
+                tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml: true},
                 width: '100%',
                 legend: 'bottom'
             };
@@ -156,7 +155,7 @@
             options = setOptionsForSmallSubCategoriesPieChart();
 
 
-            var chart = new google.visualization.PieChart(document.getElementById('subcatChart'));
+            var chart = new google.visualization.BarChart(document.getElementById('subcatChart'));
             chart.draw(data, options);
         }
 
@@ -171,9 +170,9 @@
 
                 data.setCell(i, count, category.subcategories[i].name.substring(5));
                 count++;
-                data.setCell(i, count, category.subcategories[i].value);
+                data.setCell(i, count, Math.round(category.subcategories[i].value));
                 count++;
-                data.setCell(i, count, '€ ' + category.subcategories[i].value + ' M ' + category.subcategories[i].name.substring(5) );
+                data.setCell(i, count, '€ ' + Math.round(category.subcategories[i].value) + ' M ' + category.subcategories[i].name.substring(5));
                 count = 0;
             }
             data.sort({column: 1, desc: true});
@@ -185,14 +184,14 @@
                 title: '<?php echo $this->lang->line('chart_title'); ?>',
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
-                tooltip: {textStyle: {color: 'black'}, showColorCode: true,isHtml:true},
+                tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml: true},
                 width: 600,
                 height: 400,
-                annotations:{alwaysOutside : true},
+                annotations: {alwaysOutside: true},
                 series: {
                     0: {
                         annotations: {
-                            textStyle: {fontSize: 12, color: 'black' }
+                            textStyle: {fontSize: 12, color: 'black'}
                         }
                     }
                 },
@@ -205,14 +204,35 @@
         }
 
         function setOptionsForSmallSubCategoriesPieChart() {
-            var options = {
-                title: '<?php echo $this->lang->line('chart_title'); ?>',
+            /* var options = {
+                 title: '<?php /*echo $this->lang->line('chart_title');*/ ?>',
                 colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
                 enableInteractivity: true,
                 pieSliceText: 'none',
                 tooltip: {textStyle: {color: 'black'}, showColorCode: true,isHtml:true},
                 width: '100%',
                 legend: 'right'
+            };
+
+            return options;*/
+            var options = {
+                title: '<?php echo $this->lang->line('chart_title'); ?>',
+                colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],
+                enableInteractivity: true,
+                tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml: true},
+                width: '100%',
+                height: 400,
+                annotations: {alwaysOutside: true},
+                series: {
+                    0: {
+                        annotations: {
+                            textStyle: {fontSize: 12, color: 'black'}
+                        }
+                    }
+                },
+                hAxis: {format: 'decimal', title: 'in millions'},
+                vAxis: {textPosition: 'out'},
+                legend: 'none'
             };
 
             return options;
@@ -228,8 +248,5 @@
         });
 
     });
-
-
-
 
 </script>
