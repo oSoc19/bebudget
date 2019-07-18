@@ -114,11 +114,6 @@
 
 
 
-
-
-
-
-
         function showModalWithSubCategories(chart) {
             google.visualization.events.addListener(chart, 'click', clickHandler);
 

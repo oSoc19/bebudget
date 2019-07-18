@@ -21,6 +21,7 @@ $lang["quiz_number_trillion"] = " billion";
 // Chart
 $lang["chart_file"] = "data_french.json";
 $lang["chart_title"] = "Dépenses par catégorie, en pourcentage du total des dépenses publiques";
+$lang["chart_subtitle"] = 'Toutes les données sont en millions';
 
 // Footer
 $lang["footer_part1"] = " Les données utilisées dans ce site Web provient de l’année 2017.";
