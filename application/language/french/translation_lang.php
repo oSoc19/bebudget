@@ -1,5 +1,5 @@
 <?php
-$lang["landingpage_title"] = "Savez-vous comment l'argent des contributions est utilisé ?";
+$lang["landingpage_title"] = "Savez-vous comment l'argent des contribuables est utilisé?";
 $lang["landingpage_btn_quiz"] = "Oui, testez moi";
 $lang["landingpage_btn_chart"] = "Non, savoir plus";
 
