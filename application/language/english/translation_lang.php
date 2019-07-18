@@ -15,6 +15,7 @@ $lang["quiz_score"] = "Your score is: ";
 $lang["quiz_file"] = "data_english.json";
 $lang["quiz_btn_true"] = "True";
 $lang["quiz_btn_false"] = "False";
+$lang["quiz_number"] = " billion";
 
 // Chart
 $lang["chart_file"] = "data_english.json";
