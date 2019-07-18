@@ -10,12 +10,10 @@
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
-    <link rel="stylesheet" href="/bebudget/assets/css/quiz.css">
-    <link rel="stylesheet" href="/bebudget/assets/css/style.css">
     <?php
-/*    echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "quiz.css") . "\" />";
+  echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "quiz.css") . "\" />";
     echo "<link rel=\"stylesheet\" href=\"" . base_url("assets/css/" . "style.css") . "\" />";
-    */?>
+    ?>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"
@@ -78,12 +76,9 @@
 
 
 <?php
-/*echo "<script src=\"" . base_url("assets/js/" . "scroll.js") . "\"></script>";
+echo "<script src=\"" . base_url("assets/js/" . "scroll.js") . "\"></script>";
 echo "<script src=\"" . base_url("assets/js/" . "quiz-scroll.js") . "\"></script>";
-*/?>
-
-<script src="/bebudget/assets/js/scroll.js"></script>
-<script src="/bebudget/assets/js/quiz-scroll.js"></script>
+?>
 
 </body>
 </html>

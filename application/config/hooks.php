@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 /*
 | -------------------------------------------------------------------------
 | Hooks
@@ -18,3 +17,9 @@ $hook['post_controller_constructor'] = array(
     'filename' => 'LanguageLoader.php',
     'filepath' => 'hooks'
 );
+
+$hook['pre_system'] = function() {
+
+    $dotenv = Dotenv\Dotenv::create(FCPATH);
+    $dotenv->load();
+};
