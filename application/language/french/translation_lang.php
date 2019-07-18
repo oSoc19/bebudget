@@ -1,5 +1,5 @@
 <?php
-$lang["landingpage_title"] = "Savez-vous comment l'argent des contributions est utilisé ?";
+$lang["landingpage_title"] = "Savez-vous comment l'argent des contribuables est utilisé?";
 $lang["landingpage_btn_quiz"] = "Oui, testez moi";
 $lang["landingpage_btn_chart"] = "Non, savoir plus";
 
@@ -21,6 +21,7 @@ $lang["quiz_number_trillion"] = " billion";
 // Chart
 $lang["chart_file"] = "data_french.json";
 $lang["chart_title"] = "Dépenses par catégorie, en pourcentage du total des dépenses publiques";
+$lang["chart_subtitle"] = 'Toutes les données sont en millions';
 
 // Footer
 $lang["footer_part1"] = " Les données utilisées dans ce site Web provient de l’année 2017.";
