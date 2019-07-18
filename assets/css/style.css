@@ -112,8 +112,14 @@ h1, .h1 {
     background-color: #0A0839;
 }
 
+@media screen and (min-width: 600px) {
+    #donutchart {
+        min-height: 900px;
+        width: 100%;
+    }
+}
+
 #donutchart {
-    min-height: 900px;
     width: 100%;
 }
 
@@ -144,7 +150,12 @@ footer, .footer-classic {
     footer img {
         width: 30%;
     }
-    footer .col-md-8{
+
+    footer .col-md-8 {
         align-items: flex-end;
     }
+}
+
+h3 {
+    margin-top: 3%;
 }

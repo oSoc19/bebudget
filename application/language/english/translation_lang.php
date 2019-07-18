@@ -15,11 +15,14 @@ $lang["quiz_score"] = "Your score is: ";
 $lang["quiz_file"] = "data_english.json";
 $lang["quiz_btn_true"] = "True";
 $lang["quiz_btn_false"] = "False";
-$lang["quiz_number"] = " billion";
+$lang["quiz_number_million"] = " million";
+$lang["quiz_number_billion"] = " billion";
+$lang["quiz_number_trillion"] = " trillion";
 
 // Chart
 $lang["chart_file"] = "data_english.json";
-$lang["chart_title"] = "Government spending by category as a percentage of the total expenditure";
+$lang["chart_title"] = 'Government spending by category as a percentage of the total expenditure';
+$lang["chart_subtitle"] = 'The data is all in millions';
 
 // Footer
 $lang["footer_part1"] = "The data used in this website is from the year 2017.";

@@ -14,7 +14,10 @@ $lang["quiz_score"] = "Votre score est: ";
 $lang["quiz_file"] = "data_french.json";
 $lang["quiz_btn_true"] = "Vrai";
 $lang["quiz_btn_false"] = "Faux";
-$lang["quiz_number"] = " milliard";
+$lang["quiz_number_million"] = " million";
+$lang["quiz_number_billion"] = " milliard";
+$lang["quiz_number_trillion"] = " billion";
+
 // Chart
 $lang["chart_file"] = "data_french.json";
 $lang["chart_title"] = "Dépenses par catégorie, en pourcentage du total des dépenses publiques";
