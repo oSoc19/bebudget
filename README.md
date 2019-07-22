@@ -1,37 +1,28 @@
-## Welcome to GitHub Pages
+# Osoc18 gh-pages template
+If you want to use this template, fork it to your /gh-pages branch, break it, fix it, ship it!
 
-You can use the [editor on GitHub](https://github.com/oSoc19/bebudget/edit/gh-pages/README.md) to maintain and preview the content for your website in Markdown files.
+## No hidden tigers or dragons
+It's just html pages. Start fiddling with the index.html to see your project come to life.
+The css is also just regular css, no compiling needed.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Styleguide
+There's a tiny style guide that shows you what elements you have at your disposal.
 
-### Markdown
+## Where is it deployed?
+The site for your project will be: https://osoc18.github.io/[NAMEOFYOURREPO]
+The site for this template can be found here: https://osoc18.github.io/website/
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+--
 
-```markdown
-Syntax highlighted code block
+## How to reuse
+* Go to your repo. Make a new branch called "gh-pages".
+* Make sure you remove all the files that were in that folder — but the .git folder.
+* Copy everything from this gh-pages folder into your gh-pages branch
+* Go to "settings" and make sure your gh-pages branch is set as github page (you will also find your url here).
+* Fiddle with the html and css and party!
 
-# Header 1
-## Header 2
-### Header 3
+### Help, I can't set my gh-pages branch as github page!
+Ask your coach or an other owner of your repo to do it for you.
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/oSoc19/bebudget/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### Help, my css doesn't work when I copy everything!
+You might have kept the gitignore file. That's okay, just make sure you open it and remove the "css" folder, because it's ignoring the files...
