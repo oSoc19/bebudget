@@ -1,5 +1,5 @@
 <?php
-$lang["landingpage_title"] = "Savez-vous comment l'argent des contribuables est utilisé?";
+$lang["landingpage_title"] = "Savez-vous comment <span class='highlight'>l'argent des contribuables</span> est utilisé?";
 $lang["landingpage_btn_quiz"] = "Oui, testez moi";
 $lang["landingpage_btn_chart"] = "Non, dites m'en plus";
 $lang["landingpage_home"] ="Accueil";
@@ -7,7 +7,7 @@ $lang["landingpage_quiz"] ="Quiz";
 $lang["landingpage_info"] ="Info";
 
 // Quiz
-$lang["quiz_title"] = "Serez vous capable de répondre correctement à ces <span class='highlight'>5 questions</span>";
+$lang["quiz_title"] = "Serez vous capable de répondre correctement à ces 5 questions";
 $lang["quiz_question1"] = "Où le gouvernement dépense-t-il le plus ?";
 $lang["quiz_question2"] = "Quel est le montant alloué à ";
 $lang["quiz_question3"] = "Quel pourcentage des dépenses publiques va à ";

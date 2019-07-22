@@ -12,7 +12,7 @@
         </div>
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center">
-                <h1 class="display-4 font-weight-light"><?php echo $this->lang->line('landingpage_title'); ?></h1>
+                <h1 class="font-weight-light"><?php echo $this->lang->line('landingpage_title'); ?></h1>
                 <p class="lead">
                 <div id="buttons">
                     <a href="#quiz" class="js-scroll-trigger btn btn-outline-dark"><?php echo $this->lang->line('landingpage_btn_quiz'); ?></a>

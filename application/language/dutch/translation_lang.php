@@ -1,6 +1,6 @@
 <?php
 // Landingpage
-$lang["landingpage_title"] = "Weet jij waar je belastingen naartoe gaan?";
+$lang["landingpage_title"] = "Weet jij waar je <span class='highlight'>belastingen</span> naartoe gaan?";
 $lang["landingpage_btn_quiz"] = "Ja, doe de test ";
 $lang["landingpage_btn_chart"] = "Nee, ontdek meer";
 $lang["landingpage_home"] ="Home";
@@ -8,7 +8,7 @@ $lang["landingpage_quiz"] ="Quiz";
 $lang["landingpage_info"] ="Info";
 
 // Quiz
-$lang["quiz_title"] = "Test jezelf met deze <span class='highlight'>5 vragen</span>";
+$lang["quiz_title"] = "Test jezelf met deze 5 vragen";
 $lang["quiz_question1"] = "Waaraan spendeert de overheid het meest?";
 $lang["quiz_question2"] = "Hoeveel wordt er gespendeert aan ";
 $lang["quiz_question3"] = "Hoeveel procent van de uitgaves van de overheid gaat naar ";

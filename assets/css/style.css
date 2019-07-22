@@ -1,12 +1,14 @@
 .masthead {
     height: 100vh;
     min-height: 500px;
-    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    /*background: rgb(255,240,221);
-    background: linear-gradient(140deg, rgba(255,240,221,1) 25%, rgba(23,139,172,1) 100%);*/
+}
+
+@media screen  and (max-width: 600px) {
+    .masthead {
+        background-image: url('../images/illu.svg');
+        background-position: 50% 100%;
+        background-repeat: repeat-x;
+    }
 }
 
 #buttons {
@@ -103,9 +105,25 @@ body {
 }
 
 h1, .h1 {
+    margin: 10px;
     font-family: 'Poppins', sans-serif;
 }
 
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    #buttons .btn {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+}
 
 #buttons .btn:hover {
     color: whitesmoke;
@@ -131,13 +149,27 @@ h1, .h1 {
     margin-top: 50%;
 }
 
-footer a {
+/*footer a {
     color: #fff;
     text-decoration: underline;
 }
 
 footer, .footer-classic {
     background-color: #0A0839 !important;
+}*/
+
+footer a {
+    color: #0A0839;
+    text-decoration: underline;
+}
+
+footer, footer p {
+    color: #0A0839;
+}
+
+footer, .footer-classic {
+    background-color: #fff !important;
+    filter: drop-shadow(0 -1mm 3mm lightgrey);
 }
 
 @media screen and (max-width: 600px) {
@@ -160,6 +192,25 @@ h3 {
     margin-top: 3%;
 }
 
-h3,h4,small {
+h3, h4, small {
     color: #0A0839;
+    text-align: center;
+}
+
+#myModal h4, #myModal small {
+    text-align: left;
+}
+
+
+.upform-header {
+    margin-top: 2%;
+}
+
+.highlight {
+    background-color: #34C498;
+    height: 20px;
+}
+
+#donutchart svg g:hover {
+    cursor: pointer;
 }

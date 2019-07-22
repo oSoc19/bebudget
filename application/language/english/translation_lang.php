@@ -1,6 +1,6 @@
 <?php
 // Landingpage
-$lang["landingpage_title"] = "Do you know where your taxes are going?";
+$lang["landingpage_title"] = "Do you know where your <span class='highlight'>taxes</span> are going?";
 $lang["landingpage_btn_quiz"] = "Yes, test me";
 $lang["landingpage_btn_chart"] = "No, learn more";
 $lang["landingpage_home"] ="Home";
@@ -8,7 +8,7 @@ $lang["landingpage_quiz"] ="Quiz";
 $lang["landingpage_info"] ="Info";
 
 // Quiz
-$lang["quiz_title"] = "Test yourself with these <span class='highlight'>5 questions</span>";
+$lang["quiz_title"] = "Test yourself with these 5 questions";
 $lang["quiz_question1"] = "Where does the government spend most?";
 $lang["quiz_question2"] = "How much money is spent on ";
 $lang["quiz_question3"] = "What percentage of government expenditure goes to ";
