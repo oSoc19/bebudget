@@ -1,5 +1,5 @@
 <?php
-$lang["landingpage_title"] = "Savez-vous comment l'argent des contribuables est utilisé?";
+$lang["landingpage_title"] = "Savez-vous comment <span class='highlight'>l'argent des contribuables</span> est utilisé?";
 $lang["landingpage_btn_quiz"] = "Oui, testez moi";
 $lang["landingpage_btn_chart"] = "Non, dites m'en plus";
 $lang["landingpage_home"] ="Accueil";
@@ -7,11 +7,11 @@ $lang["landingpage_quiz"] ="Quiz";
 $lang["landingpage_info"] ="Info";
 
 // Quiz
-$lang["quiz_title"] = "Serez vous capable de répondre à ces <span class='highlight'>5 questions</span>";
+$lang["quiz_title"] = "Serez vous capable de répondre correctement à ces 5 questions";
 $lang["quiz_question1"] = "Où le gouvernement dépense-t-il le plus ?";
-$lang["quiz_question2"] = "Quel est le montant aloué à ";
+$lang["quiz_question2"] = "Quel est le montant alloué à ";
 $lang["quiz_question3"] = "Quel pourcentage des dépenses publiques va à ";
-$lang["quiz_question4_first"] = "Plus d'argent est aloué à ";
+$lang["quiz_question4_first"] = "Plus d'argent est alloué à ";
 $lang["quiz_question4_second"] = " qu'à ";
 $lang["quiz_score"] = "Votre score est: ";
 $lang["quiz_file"] = "data_french.json";
@@ -23,7 +23,7 @@ $lang["quiz_number_trillion"] = " billion";
 
 // Chart
 $lang["chart_file"] = "data_french.json";
-$lang["chart_title"] = "Dépenses par catégorie, en pourcentage du total des dépenses publiques";
+$lang["chart_title"] = "Dépenses par catégorie, en pourcentage du total des dépenses gouvernementales";
 $lang["chart_subtitle"] = 'Toutes les données sont en millions';
 $lang["chart_bar_title"] = 'Dépenses gouvernementales par sous catégories de';
 
