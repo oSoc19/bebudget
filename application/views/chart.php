@@ -91,8 +91,7 @@
         function setOptionsForPieChart() {
             var options = {
                     pieHole: 0.6,
-                    /*colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],*/
-                colors: ['#0a0839', '#36345D', '#636181', '#797893','#00493A', '#005F4B', '#6AA296','#0F596E','#178bac','#56AAC2'],
+                colors: ['#0a0839', '#36345D', '#636181', '#797893','#00493A', '#005F4B','#2CA37F','#34C498','#7DD9BD','#8ED5BF'],
                     enableInteractivity: true,
                     tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml: true},
                 width:'100%'
@@ -105,8 +104,7 @@
         function setOptionsForSmallPieChart() {
             var options = {
                 pieHole: 0.5,
-                /*colors: ['#81AE9D', '#EDB458', '#BEA8AA', '#FB9F89', '#BBAB8B', '#C5DCA0', '#BF958D', '#CDD3D5', '#E2EB98', '#CD94A5'],*/
-                colors: ['#0a0839', '#36345D', '#636181', '#797893','#00493A', '#005F4B', '#6AA296','#0F596E','#178bac','#56AAC2'],
+                colors: ['#0a0839', '#36345D', '#636181', '#797893','#00493A', '#005F4B','#2CA37F','#34C498','#7DD9BD','#8ED5BF'],
                 enableInteractivity: true,
                 tooltip: {textStyle: {color: 'black'}, showColorCode: true, isHtml: true},
                 width: '100%',
