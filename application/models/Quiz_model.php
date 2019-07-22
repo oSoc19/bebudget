@@ -147,8 +147,12 @@
 
             do {
                 $answer1 = rand($minimum, $maximum);
-            } while ($answer1 < ($category->value - (0.2 * $category->value)) && $answer1 > ($category->value + (0.2 * $category->value)) );
-            $answer2 = rand($minimum, $maximum);
+            } while ($answer1 < ($category->value - (0.5 * $category->value)) && $answer1 > ($category->value + (0.5 * $category->value)) );
+
+            do {
+                $answer2 = rand($minimum, $maximum);
+            } while ($answer2 < ($category->value - (0.5 * $category->value)) && $answer2 > ($category->value + (0.5 * $category->value)) );
+
             $answer3 = $category->value;
 
             // Turn the million number into a nice text e.g.: 7485 => 7.49 Billion
@@ -200,8 +204,14 @@
             $maximum = $category->value + (0.7 * $category->value);
 
             // Set two random answers and the correct answer
-            $answer1 = rand($minimum, $maximum);
-            $answer2 = rand($minimum, $maximum);
+            do {
+                $answer1 = rand($minimum, $maximum);
+            } while ($answer1 < ($category->value - (0.5 * $category->value)) && $answer1 > ($category->value + (0.5 * $category->value)) );
+
+            do {
+                $answer2 = rand($minimum, $maximum);
+            } while ($answer2 < ($category->value - (0.5 * $category->value)) && $answer2 > ($category->value + (0.5 * $category->value)) );
+
             $answer3 = $category->value;
 
             // Convert millions to percentages
