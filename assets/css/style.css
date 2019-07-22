@@ -10,7 +10,13 @@
         background-repeat: repeat-x;
     }
 }
-
+@media screen  and (min-width: 600px) {
+    .masthead {
+        background-image: url('../images/illustration_big.svg');
+        background-size: cover;
+        background-position: 0 25%;
+    }
+}
 #buttons {
     margin-top: 3%;
     display: flex;
