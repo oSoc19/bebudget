@@ -16,7 +16,7 @@
             </div>
             <div class="modal-body">
                 <section id="content">
-                    <h4></h4>
+                    <h4> <?php echo $this->lang->line('chart_bar_title'); ?>  <span></span></h4>
                     <small><?php echo $this->lang->line('chart_subtitle'); ?></small>
                     <div id="subcatChart" style="height:50%;"></div>
                     <p></p>
@@ -78,6 +78,7 @@
 
                 data.setCell(i, count, info.TOT.categories[i].name.substring(3));
                 count++;
+                /*data.setCell(i, count, info.TOT.categories[i].value);*/
                 data.setCell(i, count, info.TOT.categories[i].value);
 /*                count++;
                 data.setCell(i, count, '€ ' + info.TOT.categories[i].value + ' million </br>' + info.TOT.categories[i].name.substring(3));*/
@@ -131,7 +132,7 @@
                         if (info.TOT.categories[i].name.substring(3) == categoryname) {
                             var category = info.TOT.categories[i];
                             $('#title').text(category.name.substring(3));
-                            $('#content h4').text('Government spending per sub-category of ' +  category.name.substring(3));
+                            $('#content h4 span').text(category.name.substring(3));
 
 
                             var width = $(window).width();
@@ -250,4 +251,26 @@
 
     });
 
+</script>
+
+
+<script>
+    function prettifyNumber(number) {
+        if (number.indexOf('.') ||number.indexOf(',') ) {
+            number = number.replace(',','');
+            number = number.replace('.','');
+            number += "00000";
+        }
+        else {
+            number += "00000";
+        }
+        if (!$.isNumeric(number)) return false;
+
+        if (number > 1000000000000) return Math.round((number / 1000000000000), 2) + ' trillion';
+        else if (number > 1000000000) return Math.round((number / 1000000000), 2) + ' billion';
+        else if (number > 1000000) return Math.round((number / 1000000), 2) + ' million';
+        else if (number > 1000) return number;
+
+        return numberFormat(number);
+    }
 </script>
