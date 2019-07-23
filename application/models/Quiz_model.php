@@ -6,7 +6,7 @@
         public function __construct() {
             parent::__construct();
 
-            $this->data = json_decode(file_get_contents('./uploads/' .$this->lang->line("chart_file")));
+            $this->data = json_decode(file_get_contents('./uploads/' .$this->lang->line("quiz_file")));
             $this->usedCategories = array();
 
             $this->load->helper('form');
