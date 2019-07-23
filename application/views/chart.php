@@ -1,6 +1,8 @@
-<div style="width: 70%; margin: auto;">
+<div style="width: 70%; margin: auto; text-align: center;">
     <h3><?php echo $this->lang->line('chart_title'); ?></h3>
-    <small><?php echo $this->lang->line('chart_subtitle'); ?></small>
+    <medium>Tip: try to click the chart!</medium>
+    <br/>
+    <medium><?php echo $this->lang->line('chart_subtitle'); ?></medium>
 </div>
 <div id="donutchart"></div>
 
