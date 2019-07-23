@@ -21,6 +21,8 @@ $lang["quiz_btn_false"] = "Onwaar";
 $lang["quiz_number_million"] = " miljoen";
 $lang["quiz_number_billion"] = " miljard";
 $lang["quiz_number_trillion"] = " biljoen";
+$lang["quiz_wronganswer"]="Je antwoord was fout";
+$lang["quiz_rightanswer"]="Je antwoord was juist";
 
 // Chart
 $lang["chart_file"] = "data_dutch.json";

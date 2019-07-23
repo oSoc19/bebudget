@@ -21,6 +21,8 @@ $lang["quiz_btn_false"] = "False";
 $lang["quiz_number_million"] = " million";
 $lang["quiz_number_billion"] = " billion";
 $lang["quiz_number_trillion"] = " trillion";
+$lang["quiz_wronganswer"]="You answered wrong";
+$lang["quiz_rightanswer"]="You answered right";
 
 // Chart
 $lang["chart_file"] = "data_english.json";
