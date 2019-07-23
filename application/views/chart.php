@@ -22,6 +22,7 @@
                     <small><?php echo $this->lang->line('chart_subtitle'); ?></small>
                     <div id="subcatChart" style="height:50%;"></div>
                     <p></p>
+                    <small><?php echo $this->lang->line('chart_abbreviation_nec'); ?></small>
                 </section>
             </div>
             <div class="modal-footer">

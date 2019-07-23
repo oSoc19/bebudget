@@ -26,6 +26,7 @@ $lang["chart_file"] = "data_french.json";
 $lang["chart_title"] = "Dépenses par catégorie, en pourcentage du total des dépenses gouvernementales";
 $lang["chart_subtitle"] = 'Toutes les données sont en millions';
 $lang["chart_bar_title"] = 'Dépenses gouvernementales par sous catégories de';
+$lang["chart_abbreviation_nec"] = "n.c.a.: Non Classé Ailleurs";
 
 // Footer
 $lang["footer_part1"] = "Les données utilisées dans ce site Web provient de l’année 2017.";

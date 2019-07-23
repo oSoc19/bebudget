@@ -13,7 +13,7 @@ $lang["quiz_question1"] = "Where does the government spend most?";
 $lang["quiz_question2"] = "How much money is spent on ";
 $lang["quiz_question3"] = "What percentage of government expenditure goes to ";
 $lang["quiz_question4_first"] = "More is spent on ";
-$lang["quiz_question4_second"] = " than ";
+$lang["quiz_question4_second"] = " than on ";
 $lang["quiz_score"] = "Your score is: ";
 $lang["quiz_file"] = "data_english.json";
 $lang["quiz_btn_true"] = "True";
@@ -27,6 +27,7 @@ $lang["chart_file"] = "data_english.json";
 $lang["chart_title"] = 'Government spending by category as a percentage of the total expenditure';
 $lang["chart_subtitle"] = 'The data is shown in millions';
 $lang["chart_bar_title"] = 'Government spending per sub-category of ';
+$lang["chart_abbreviation_nec"] = "n.e.c.: Not Elsewhere Classified";
 
 // Footer
 $lang["footer_part1"] = "The data used in this website is from the year 2017.";
