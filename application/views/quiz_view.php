@@ -1,6 +1,6 @@
 <div class="upform">
     <form>
-        <div class="upform-header"><?php echo $this->lang->line('quiz_title'); ?></div>
+        <h2 style="color: #fff;"><?php echo $this->lang->line('quiz_title'); ?></h2>
 
         <div class="upform-main">
             <?php

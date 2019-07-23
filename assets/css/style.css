@@ -194,11 +194,11 @@ footer, .footer-classic {
     }
 }
 
-h3 {
+h2 {
     margin-top: 3%;
 }
 
-h3, h4, small {
+h2, h4, small {
     color: #0A0839;
     text-align: center;
 }

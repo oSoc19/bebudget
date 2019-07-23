@@ -1,5 +1,5 @@
 <div style="width: 70%; margin: auto; text-align: center;">
-    <h3><?php echo $this->lang->line('chart_title'); ?></h3>
+    <h2><?php echo $this->lang->line('chart_title'); ?></h2>
     <medium>Tip: try to click the chart!</medium>
     <br/>
     <medium><?php echo $this->lang->line('chart_subtitle'); ?></medium>
