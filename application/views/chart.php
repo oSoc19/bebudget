@@ -1,6 +1,6 @@
 <div style="width: 70%; margin: auto; text-align: center;">
     <h2><?php echo $this->lang->line('chart_title'); ?></h2>
-    <medium>Tip: try to click the chart!</medium>
+    <medium><?php echo $this->lang->line('chart_clickme'); ?></medium>
     <br/>
     <medium><?php echo $this->lang->line('chart_subtitle'); ?></medium>
 </div>
