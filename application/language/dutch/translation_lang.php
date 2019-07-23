@@ -21,12 +21,16 @@ $lang["quiz_btn_false"] = "Onwaar";
 $lang["quiz_number_million"] = " miljoen";
 $lang["quiz_number_billion"] = " miljard";
 $lang["quiz_number_trillion"] = " biljoen";
+$lang["quiz_wronganswer"]='Je antwoord was fout';
+$lang["quiz_rightanswer"]='Je antwoord was juist';
 
 // Chart
 $lang["chart_file"] = "data_dutch.json";
 $lang["chart_title"] = "Overheidsuitgaven per categorie als een percentage van de totale uitgaven";
 $lang["chart_subtitle"] = 'De data is weergeven in miljoenen';
 $lang["chart_bar_title"] = 'Uitgaven van de overheid per subcategorie van ';
+$lang["chart_abbreviation_nec"] = "n.e.g.: Niet Eerder Genoemd";
+$lang["chart_clickme"] = "Tip: klik op de grafiek";
 
 // Footer
 $lang["footer_part1"] = "De data die gebruikt werd op deze website is van het jaar 2017.";

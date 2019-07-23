@@ -6,7 +6,7 @@
 @media screen  and (max-width: 600px) {
     .masthead {
         background-image: url('../images/illu.svg');
-        background-position: 50% 100%;
+        background-position: center 90%;
         background-repeat: repeat-x;
     }
 }
@@ -194,11 +194,11 @@ footer, .footer-classic {
     }
 }
 
-h3 {
+h2 {
     margin-top: 3%;
 }
 
-h3, h4, small {
+h2, h4, small {
     color: #0A0839;
     text-align: center;
 }
@@ -219,4 +219,9 @@ h3, h4, small {
 
 #donutchart svg g:hover {
     cursor: pointer;
+}
+
+.quizbutton{
+    color: #fff !important;
+    background-color: #0A0839;
 }

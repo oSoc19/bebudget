@@ -1,6 +1,6 @@
 <div class="upform">
     <form>
-        <div class="upform-header"><?php echo $this->lang->line('quiz_title'); ?></div>
+        <h2 style="color: #fff;"><?php echo $this->lang->line('quiz_title'); ?></h2>
 
         <div class="upform-main">
             <?php
@@ -43,6 +43,8 @@
                                     $count++;
                                 } ?>
                         </div>
+
+                        <div class="answer hidden"></div>
                     </div>
                 <?php } ?>
         </div>
@@ -76,10 +78,10 @@
                 score++;
 
                 // Add check icon to question
-                $(this).parent().parent().find('.label').append('<i class="far fa-check-circle hidden"></i>');
+                $(this).parent().parent().find('.answer').append('<div class="right"><?php echo $this->lang->line("quiz_rightanswer"); ?> <i class="far fa-check-circle hidden"></i></div>');
             } else{
                 // Add wrong icon to question
-                $(this).parent().parent().find('.label').append('<i class="far fa-times-circle hidden"></i>');
+                $(this).parent().parent().find('.answer').append('<div class="wrong"><?php echo $this->lang->line("quiz_wronganswer"); ?> <i class="far fa-times-circle hidden"></i></div>');
             }
 
             // Add the correct answer to the array
@@ -97,6 +99,7 @@
                 $('#score').removeClass('hidden').append(score + '/' + amountOfQuestions);
 
                 // Show the check or wrong icons
+                $('.answer').removeClass('hidden');
                 $('i').removeClass('hidden');
 
                 for (let i = 0; i < questions.length; i++) {

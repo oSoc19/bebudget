@@ -1,6 +1,8 @@
-<div style="width: 70%; margin: auto;">
-    <h3><?php echo $this->lang->line('chart_title'); ?></h3>
-    <small><?php echo $this->lang->line('chart_subtitle'); ?></small>
+<div style="width: 70%; margin: auto; text-align: center;">
+    <h2><?php echo $this->lang->line('chart_title'); ?></h2>
+    <medium><?php echo $this->lang->line('chart_clickme'); ?></medium>
+    <br/>
+    <medium><?php echo $this->lang->line('chart_subtitle'); ?></medium>
 </div>
 <div id="donutchart"></div>
 
@@ -20,6 +22,7 @@
                     <small><?php echo $this->lang->line('chart_subtitle'); ?></small>
                     <div id="subcatChart" style="height:50%;"></div>
                     <p></p>
+                    <small><?php echo $this->lang->line('chart_abbreviation_nec'); ?></small>
                 </section>
             </div>
             <div class="modal-footer">
