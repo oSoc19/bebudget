@@ -20,8 +20,8 @@ $lang["quiz_btn_false"] = "Faux";
 $lang["quiz_number_million"] = " million";
 $lang["quiz_number_billion"] = " milliard";
 $lang["quiz_number_trillion"] = " billion";
-$lang["quiz_wronganswer"]=" vous avez répondu mal";
-$lang["quiz_rightanswer"]=" vous avez répondu bon";
+$lang["quiz_wronganswer"]='vous avez répondu mal';
+$lang["quiz_rightanswer"]='vous avez répondu bon';
 
 // Chart
 $lang["chart_file"] = "data_french.json";

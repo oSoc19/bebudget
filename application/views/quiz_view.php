@@ -78,10 +78,10 @@
                 score++;
 
                 // Add check icon to question
-                $(this).parent().parent().find('.answer').append('<?php echo $this->lang->line("quiz_rightanswer"); ?> <i class="far fa-check-circle hidden"></i>');
+                $(this).parent().parent().find('.answer').append('<div class="right"><?php echo $this->lang->line("quiz_rightanswer"); ?> <i class="far fa-check-circle hidden"></i></div>');
             } else{
                 // Add wrong icon to question
-                $(this).parent().parent().find('.answer').append('<?php echo $this->lang->line("quiz_wronganswer"); ?> <i class="far fa-times-circle hidden"></i>');
+                $(this).parent().parent().find('.answer').append('<div class="wrong"><?php echo $this->lang->line("quiz_wronganswer"); ?> <i class="far fa-times-circle hidden"></i></div>');
             }
 
             // Add the correct answer to the array

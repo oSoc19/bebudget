@@ -147,3 +147,10 @@ input[type="radio"].toggle:checked + label:after {
     letter-spacing: 1.5px;
     font-family: 'Poppins', sans-serif;
 }
+
+.wrong {
+    color: #F14A3B !important;
+}
+.right {
+    color: #44DBA4 !important;
+}
