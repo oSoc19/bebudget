@@ -15,7 +15,7 @@
                 <h1 class="font-weight-light"><?php echo $this->lang->line('landingpage_title'); ?></h1>
                 <p class="lead">
                 <div id="buttons">
-                    <a href="#quiz" class="js-scroll-trigger btn btn-outline-dark"><?php echo $this->lang->line('landingpage_btn_quiz'); ?></a>
+                    <a href="#quiz" class="js-scroll-trigger btn quizbutton"><?php echo $this->lang->line('landingpage_btn_quiz'); ?></a>
                     <a href="#graph" class=" js-scroll-trigger btn btn-outline-dark"><?php echo $this->lang->line('landingpage_btn_chart'); ?></a>
                 </div>
                 </p>
