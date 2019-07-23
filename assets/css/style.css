@@ -6,7 +6,7 @@
 @media screen  and (max-width: 600px) {
     .masthead {
         background-image: url('../images/illu.svg');
-        background-position: 50% 100%;
+        background-position: center 90%;
         background-repeat: repeat-x;
     }
 }
