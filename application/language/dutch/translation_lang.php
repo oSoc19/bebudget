@@ -27,10 +27,10 @@ $lang["quiz_rightanswer"]='Je antwoord was juist';
 // Chart
 $lang["chart_file"] = "data_dutch.json";
 $lang["chart_title"] = "Overheidsuitgaven per categorie als een percentage van de totale uitgaven";
-$lang["chart_subtitle"] = 'De data is weergeven in miljoenen';
+$lang["chart_subtitle"] = 'De data is weergegeven in miljoenen';
 $lang["chart_bar_title"] = 'Uitgaven van de overheid per subcategorie van ';
 $lang["chart_abbreviation_nec"] = "n.e.g.: Niet Eerder Genoemd";
-$lang["chart_clickme"] = "Tip: klik op de grafiek";
+$lang["chart_clickme"] = "Tip: dubbelklik op de grafiek";
 
 // Footer
 $lang["footer_part1"] = "De data die gebruikt werd op deze website is van het jaar 2017.";
