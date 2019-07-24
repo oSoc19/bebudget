@@ -30,7 +30,7 @@ $lang["chart_title"] = 'Government spending by category as a percentage of the t
 $lang["chart_subtitle"] = 'The data is shown in millions';
 $lang["chart_bar_title"] = 'Government spending per sub-category of ';
 $lang["chart_abbreviation_nec"] = "n.e.c.: Not Elsewhere Classified";
-$lang["chart_clickme"] = "Tip: try to click the chart!";
+$lang["chart_clickme"] = "Tip: try to doubleclick the chart!";
 
 // Footer
 $lang["footer_part1"] = "The data used in this website is from the year 2017.";
